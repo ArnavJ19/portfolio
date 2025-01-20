@@ -3,151 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Magic UI</title>
-    <!-- Link Magic UI CSS -->
+    <title>Arnav's Portfolio</title>
     <link rel="stylesheet" href="https://unpkg.com/magic-ui/dist/magic-ui.min.css">
-    <!-- Custom CSS -->
     <style>
         body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0e1217;
-            color: #fff;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
         }
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: #1e2530;
-        }
-        header .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-        header nav a {
-            color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        header nav a:hover {
-            text-decoration: underline;
-        }
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             text-align: center;
-            height: 100vh;
-            background: linear-gradient(120deg, #3a3d98, #2d84d4);
+            margin: 40px 0;
         }
-        .hero h1 {
+        header h1 {
             font-size: 3em;
-            margin-bottom: 10px;
+            margin: 0;
         }
-        .hero p {
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+        section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        section p {
+            line-height: 1.6;
+        }
+        .experience {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .job {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .job img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .job div {
+            flex: 1;
+        }
+        .job h3 {
+            margin: 0;
             font-size: 1.2em;
         }
-        .container {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section {
-            margin-bottom: 40px;
-            background: #1e2530;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .section h2 {
-            margin-top: 0;
-            color: #2d84d4;
-        }
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .project {
-            background: #1e2530;
-            border: 1px solid #2d84d4;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-        }
-        .project img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .project h3 {
-            margin: 10px 0;
+        .job span {
+            color: #666;
+            font-size: 0.9em;
         }
         footer {
             text-align: center;
             padding: 20px;
-            background: #1e2530;
+            margin-top: 40px;
+            font-size: 0.9em;
+            background-color: #333;
             color: #fff;
         }
         footer a {
-            color: #2d84d4;
+            color: #4da8da;
             text-decoration: none;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Arnav's Portfolio</div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <img class="profile-image" src="https://via.placeholder.com/150" alt="Profile Image">
+        <h1>Hi, I'm Arnav 👋</h1>
+        <p>Data Scientist turned Developer. I love building things and helping people. Very active on GitHub and LinkedIn.</p>
     </header>
 
-    <section class="hero">
-        <div>
-            <h1>Hi, I'm Arnav</h1>
-            <p>A Data Scientist & Developer passionate about building impactful solutions.</p>
+    <section>
+        <h2>About</h2>
+        <p>At the end of 2024, I began building impactful AI-driven solutions. I pursued a Master's in Data Science, collaborated on projects in trading systems, and analyzed 4.5TB of data. I thrive on building applications that drive change, merging deep technical expertise with innovative thinking.</p>
+    </section>
+
+    <section>
+        <h2>Work Experience</h2>
+        <div class="experience">
+            <div class="job">
+                <img src="https://via.placeholder.com/40" alt="Company Logo">
+                <div>
+                    <h3>Quant Researcher</h3>
+                    <span>Big Quant Hedge Fund, NYC (2024 - Present)</span>
+                </div>
+            </div>
+            <div class="job">
+                <img src="https://via.placeholder.com/40" alt="Company Logo">
+                <div>
+                    <h3>Data Scientist</h3>
+                    <span>Center for Gambling Studies (2023 - 2024)</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="container">
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>I specialize in data science, machine learning, and creating innovative solutions. I thrive on challenging projects that allow me to combine analytical thinking with creative problem-solving.</p>
-        </section>
-
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="projects">
-                <div class="project">
-                    <img src="https://via.placeholder.com/300" alt="Project 1">
-                    <h3>Project 1</h3>
-                    <p>Details about this project.</p>
-                </div>
-                <div class="project">
-                    <img src="https://via.placeholder.com/300" alt="Project 2">
-                    <h3>Project 2</h3>
-                    <p>Details about this project.</p>
-                </div>
-                <div class="project">
-                    <img src="https://via.placeholder.com/300" alt="Project 3">
-                    <h3>Project 3</h3>
-                    <p>Details about this project.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p>Feel free to reach out to me at <a href="mailto:arnav@example.com">arnav@example.com</a>.</p>
-        </section>
-    </div>
+    <section>
+        <h2>Education</h2>
+        <p>Master's in Data Science, Rutgers University (2023 - 2025)</p>
+        <p>Bachelor's in Computer Science, India (2018 - 2022)</p>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Arnav Jain | Built with <a href="https://magic-ui.vercel.app">Magic UI</a></p>
+        <p>&copy; 2025 Arnav Jain | Connect on <a href="https://github.com/ArnavJ19">GitHub</a> or <a href="mailto:arnav@example.com">Email Me</a></p>
     </footer>
 </body>
 </html>
