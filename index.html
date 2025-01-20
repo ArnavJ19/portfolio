@@ -55,71 +55,20 @@
             font-size: 1.1em;
             color: #555;
         }
-        .experience {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .job {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: #f4f4f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .job img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-        .job div {
-            flex: 1;
-        }
-        .job h3 {
-            margin: 0;
-            font-size: 1.4em;
-        }
-        .job span {
-            color: #777;
-            font-size: 0.9em;
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+        .experience, .skills, .projects {
             margin-top: 20px;
         }
-        .skill {
-            background: #2d84d4;
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 1em;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .project {
-            background: #fff;
-            padding: 20px;
+        .experience .job, .skills .skill, .projects .project {
+            margin-bottom: 15px;
+            padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            background: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .project:hover {
-            transform: translateY(-10px);
+        .experience .job:hover, .skills .skill:hover, .projects .project:hover {
+            transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .project img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
         }
         .floating-box {
             position: fixed;
@@ -172,18 +121,12 @@
         <h2>Work Experience</h2>
         <div class="experience">
             <div class="job">
-                <img src="https://via.placeholder.com/50" alt="Company Logo">
-                <div>
-                    <h3>Quant Researcher</h3>
-                    <span>Big Quant Hedge Fund, NYC (2024 - Present)</span>
-                </div>
+                <h3>Quant Researcher</h3>
+                <span>Big Quant Hedge Fund, NYC (2024 - Present)</span>
             </div>
             <div class="job">
-                <img src="https://via.placeholder.com/50" alt="Company Logo">
-                <div>
-                    <h3>Data Scientist</h3>
-                    <span>Center for Gambling Studies (2023 - 2024)</span>
-                </div>
+                <h3>Data Scientist</h3>
+                <span>Center for Gambling Studies (2023 - 2024)</span>
             </div>
         </div>
     </section>
@@ -198,10 +141,8 @@
         <h2>Skills</h2>
         <div class="skills">
             <span class="skill">Python</span>
-            <span class="skill">JavaScript</span>
             <span class="skill">Machine Learning</span>
             <span class="skill">React</span>
-            <span class="skill">Docker</span>
         </div>
     </section>
 
@@ -209,14 +150,12 @@
         <h2>Projects</h2>
         <div class="projects">
             <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Project 1">
                 <h3>Project 1</h3>
-                <p>Description of Project 1.</p>
+                <p>Description here</p>
             </div>
             <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Project 2">
                 <h3>Project 2</h3>
-                <p>Description of Project 2.</p>
+                <p>Description here</p>
             </div>
         </div>
     </section>
@@ -229,7 +168,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Arnav Jain | Connect on <a href="https://github.com/ArnavJ19">GitHub</a> or <a href="mailto:arnav@example.com">Email Me</a></p>
+        <p>&copy; 2025 Arnav Jain | Connect on <a href="#">GitHub</a></p>
     </footer>
 </body>
 </html>
