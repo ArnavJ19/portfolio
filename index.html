@@ -72,6 +72,53 @@
             color: #666;
             font-size: 0.9em;
         }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .skill {
+            background: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .project img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .floating-box {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 15px;
+            padding: 10px 20px;
+            align-items: center;
+        }
+        .floating-box a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
         footer {
             text-align: center;
             padding: 20px;
@@ -123,6 +170,40 @@
         <p>Master's in Data Science, Rutgers University (2023 - 2025)</p>
         <p>Bachelor's in Computer Science, India (2018 - 2022)</p>
     </section>
+
+    <section>
+        <h2>Skills</h2>
+        <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Machine Learning</span>
+            <span class="skill">React</span>
+            <span class="skill">Docker</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <img src="https://via.placeholder.com/300" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>Description of Project 1.</p>
+            </div>
+            <div class="project">
+                <img src="https://via.placeholder.com/300" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>Description of Project 2.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="floating-box">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+    </div>
 
     <footer>
         <p>&copy; 2025 Arnav Jain | Connect on <a href="https://github.com/ArnavJ19">GitHub</a> or <a href="mailto:arnav@example.com">Email Me</a></p>
