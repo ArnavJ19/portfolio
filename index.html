@@ -10,19 +10,24 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff;
+            background-color: #f4f4f9;
             color: #333;
         }
         header {
             text-align: center;
             margin: 40px 0;
+            background: linear-gradient(120deg, #3a3d98, #2d84d4);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             margin: 0;
         }
         header p {
-            font-size: 1.2em;
+            font-size: 1.4em;
             margin-top: 10px;
         }
         .profile-image {
@@ -30,21 +35,25 @@
             height: 150px;
             border-radius: 50%;
             margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         section {
-            max-width: 800px;
+            max-width: 900px;
             margin: 40px auto;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            background: #f9f9f9;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         section h2 {
-            font-size: 2em;
+            font-size: 2.2em;
             margin-bottom: 20px;
+            color: #2d84d4;
         }
         section p {
-            line-height: 1.6;
+            line-height: 1.8;
+            font-size: 1.1em;
+            color: #555;
         }
         .experience {
             display: flex;
@@ -55,10 +64,14 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            background: #f4f4f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .job img {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
         }
         .job div {
@@ -66,24 +79,25 @@
         }
         .job h3 {
             margin: 0;
-            font-size: 1.2em;
+            font-size: 1.4em;
         }
         .job span {
-            color: #666;
+            color: #777;
             font-size: 0.9em;
         }
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
             margin-top: 20px;
         }
         .skill {
-            background: #333;
+            background: #2d84d4;
             color: #fff;
-            padding: 5px 10px;
+            padding: 10px 15px;
             border-radius: 5px;
-            font-size: 0.9em;
+            font-size: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         .projects {
             display: grid;
@@ -91,15 +105,21 @@
             gap: 20px;
         }
         .project {
-            background: #f9f9f9;
+            background: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         .project img {
             width: 100%;
             border-radius: 8px;
+            margin-bottom: 15px;
         }
         .floating-box {
             position: fixed;
@@ -108,28 +128,31 @@
             transform: translateX(-50%);
             background: #fff;
             border-radius: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             display: flex;
-            gap: 15px;
-            padding: 10px 20px;
+            gap: 20px;
+            padding: 15px 30px;
             align-items: center;
+            z-index: 1000;
         }
         .floating-box a {
-            color: #333;
+            color: #2d84d4;
             text-decoration: none;
             font-size: 1.2em;
+            font-weight: bold;
         }
         footer {
             text-align: center;
             padding: 20px;
             margin-top: 40px;
             font-size: 0.9em;
-            background-color: #333;
+            background-color: #2d84d4;
             color: #fff;
+            border-radius: 10px 10px 0 0;
         }
         footer a {
-            color: #4da8da;
-            text-decoration: none;
+            color: #fff;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -149,14 +172,14 @@
         <h2>Work Experience</h2>
         <div class="experience">
             <div class="job">
-                <img src="https://via.placeholder.com/40" alt="Company Logo">
+                <img src="https://via.placeholder.com/50" alt="Company Logo">
                 <div>
                     <h3>Quant Researcher</h3>
                     <span>Big Quant Hedge Fund, NYC (2024 - Present)</span>
                 </div>
             </div>
             <div class="job">
-                <img src="https://via.placeholder.com/40" alt="Company Logo">
+                <img src="https://via.placeholder.com/50" alt="Company Logo">
                 <div>
                     <h3>Data Scientist</h3>
                     <span>Center for Gambling Studies (2023 - 2024)</span>
