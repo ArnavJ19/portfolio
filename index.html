@@ -140,13 +140,14 @@
     </div>
   </footer>
 
-  <script>
-    // GSAP Animations
-    gsap.from(".fade-in", { opacity: 0, duration: 1, y: 50 });
-    gsap.from(".fade-in-up", { opacity: 0, duration: 1, y: 100, stagger: 0.2 });
-    gsap.from(".slide-in-left", { opacity: 0, duration: 1, x: -100, stagger: 0.2 });
-    gsap.from(".zoom-in", { opacity: 0, duration: 1, scale: 0.8, stagger: 0.2 });
-    gsap.to(".pulse", { scale: 1.1, duration: 0.6, repeat: -1, yoyo: true });
-  </script>
+ <script>
+  // GSAP Animations with Smooth Easing
+  gsap.from(".fade-in", { opacity: 0, duration: 1, y: 50, ease: "power2.out" });
+  gsap.from(".fade-in-up", { opacity: 0, duration: 1, y: 100, stagger: 0.3, ease: "power2.out" });
+  gsap.from(".slide-in-left", { opacity: 0, duration: 1, x: -100, stagger: 0.3, ease: "power2.out" });
+  gsap.from(".zoom-in", { opacity: 0, duration: 1, scale: 0.8, stagger: 0.3, ease: "elastic.out(1, 0.3)" });
+  gsap.to(".pulse", { scale: 1.1, duration: 0.6, repeat: -1, yoyo: true, ease: "sine.inOut" });
+</script>
+
 </body>
 </html>
