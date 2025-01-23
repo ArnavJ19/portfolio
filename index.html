@@ -4,146 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arnav Jain - Portfolio</title>
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <!-- GSAP for Animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-AQpsH/uUEVcnfgw1/CiRCnxHB+O3z4e8kvwP68+mUmx4SmV+AsuXGJfrANk9xH4Bj7eVB4h5y3QZ2A6Kv8O+jA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- Magic Animations -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magic.css/dist/magic.min.css">
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #edf6ff, #dfe3f3);
-      color: #333;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    header {
-      background: linear-gradient(135deg, #6e8efb, #a777e3);
-      color: #fff;
-      padding: 2rem 0;
-      margin-bottom: 3rem;
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-
-    header nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    header nav ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    header nav ul li a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    section {
-      padding: 3rem 1rem;
-    }
-
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      color: #6e8efb;
-    }
-
-    section p {
-      max-width: 800px;
-      margin: 0 auto 2rem auto;
-      color: #555;
-      font-size: 1.2rem;
-    }
-
-    #skills, #projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 0 2rem;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    }
-
-    .card h3 {
-      font-size: 1.5rem;
-      color: #6e8efb;
-      margin-bottom: 1rem;
-    }
-
-    .card p {
-      color: #555;
-      font-size: 1rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #6e8efb;
-      color: #fff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s;
-    }
-
-    .btn:hover {
-      background: #a777e3;
-      transform: scale(1.05);
-    }
-
-    footer {
-      background: #333;
-      color: #fff;
-      padding: 2rem;
-      margin-top: 3rem;
-    }
-
-    footer p {
-      margin: 0;
-    }
-  </style>
 </head>
 <body>
-  <header>
-    <h1>Hi, I'm Arnav.<br>A Data Enthusiast.</h1>
-    <nav>
-      <ul>
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="#" class="logo">Arnav Jain</a>
+      <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -153,68 +25,103 @@
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am a data enthusiast passionate about Machine Learning, Data Science, and creating impactful solutions. I specialize in predictive modeling, algorithmic trading, and storytelling through data visualization. Let's connect to discuss how I can add value to your projects!</p>
-  </section>
+  <main>
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1>Hi, I'm Arnav.<br>A Data Enthusiast.</h1>
+        <p>Crafting intelligent solutions for tomorrow's challenges with data and creativity.</p>
+        <a href="#projects" class="cta-btn">View My Work</a>
+      </div>
+    </section>
 
-  <section id="skills">
-    <h2>My Skills</h2>
-    <div class="card">
-      <h3>Programming</h3>
-      <p>Python, R, SQL, Java, Scala</p>
-    </div>
-    <div class="card">
-      <h3>Data Engineering</h3>
-      <p>PySpark, PostgreSQL, MongoDB</p>
-    </div>
-    <div class="card">
-      <h3>Data Analysis</h3>
-      <p>Tableau, Power BI, Matplotlib</p>
-    </div>
-    <div class="card">
-      <h3>Machine Learning</h3>
-      <p>PyTorch, TensorFlow, Scikit-Learn</p>
-    </div>
-  </section>
+    <section id="about" class="about-section">
+      <h2>About Me</h2>
+      <p>I am passionate about leveraging data for meaningful insights, developing predictive models, and building innovative tools to solve complex problems. My expertise lies in data science, machine learning, and algorithmic trading.</p>
+    </section>
 
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="card">
-      <h3>Reinforcement Learning Trading Agent</h3>
-      <p>A PPO-based RL agent for portfolio optimization.</p>
-    </div>
-    <div class="card">
-      <h3>Fraud Detection System</h3>
-      <p>A real-time ML pipeline to detect fraudulent transactions.</p>
-    </div>
-    <div class="card">
-      <h3>Depression Prediction Dashboard</h3>
-      <p>Visualizing health data with predictive analytics.</p>
-    </div>
-  </section>
+    <section id="skills" class="skills-section">
+      <h2>My Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Programming</h3>
+          <p>Python, R, SQL, Java, Scala</p>
+        </div>
+        <div class="skill-card">
+          <h3>Data Engineering</h3>
+          <p>PySpark, PostgreSQL, MongoDB</p>
+        </div>
+        <div class="skill-card">
+          <h3>Data Analysis</h3>
+          <p>Tableau, Power BI, Matplotlib</p>
+        </div>
+        <div class="skill-card">
+          <h3>Machine Learning</h3>
+          <p>PyTorch, TensorFlow, Scikit-Learn</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="experience">
-    <h2>Work Experience</h2>
-    <div class="card">
-      <h3>Data Scientist - Center of Gambling Studies</h3>
-      <p>Leveraged 4.5TB of data to develop predictive models and mitigate gambling risks.</p>
-    </div>
-    <div class="card">
-      <h3>Quant Researcher - Hedge Fund</h3>
-      <p>Designed ML-driven trading strategies and backtested them against benchmarks.</p>
-    </div>
-  </section>
+    <section id="projects" class="projects-section">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Reinforcement Learning Trading Agent</h3>
+          <p>A PPO-based RL agent for portfolio optimization.</p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="project-card">
+          <h3>Fraud Detection System</h3>
+          <p>A real-time ML pipeline to detect fraudulent transactions.</p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="project-card">
+          <h3>Depression Prediction Dashboard</h3>
+          <p>Visualizing health data with predictive analytics.</p>
+          <a href="#">Learn More</a>
+        </div>
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>I'm always open to collaborating on exciting projects or discussing innovative ideas. Feel free to reach out!</p>
-    <a href="mailto:arnavjain@example.com" class="btn">Email Me</a>
-    <a href="https://www.linkedin.com/in/arnavj19" class="btn">LinkedIn</a>
-  </section>
+    <section id="experience" class="experience-section">
+      <h2>Work Experience</h2>
+      <div class="experience-timeline">
+        <div class="timeline-item">
+          <h3>Data Scientist - Center of Gambling Studies</h3>
+          <p>Leveraged 4.5TB of data to develop predictive models and mitigate gambling risks.</p>
+          <span>2023 - Present</span>
+        </div>
+        <div class="timeline-item">
+          <h3>Quant Researcher - Hedge Fund</h3>
+          <p>Designed ML-driven trading strategies and backtested them against benchmarks.</p>
+          <span>2022 - 2023</span>
+        </div>
+      </div>
+    </section>
 
-  <footer>
+    <section id="contact" class="contact-section">
+      <h2>Contact Me</h2>
+      <p>If you'd like to collaborate or discuss opportunities, feel free to reach out!</p>
+      <div class="contact-links">
+        <a href="mailto:arnavjain@example.com" class="contact-btn">Email Me</a>
+        <a href="https://www.linkedin.com/in/arnavj19" class="contact-btn">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
     <p>&copy; 2025 Arnav Jain. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
