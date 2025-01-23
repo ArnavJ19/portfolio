@@ -14,140 +14,203 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-AQpsH/uUEVcnfgw1/CiRCnxHB+O3z4e8kvwP68+mUmx4SmV+AsuXGJfrANk9xH4Bj7eVB4h5y3QZ2A6Kv8O+jA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- Magic Animations -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magic.css/dist/magic.min.css">
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      color: #333;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding-top: 1rem;
+    }
+
+    header nav ul li {
+      margin: 0 1rem;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    header nav ul li a:hover {
+      color: #6e8efb;
+    }
+
+    section {
+      padding: 2rem 1rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    section p {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      color: #eee;
+    }
+
+    #skills, #projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 1rem 2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      color: #6e8efb;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #6e8efb;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #a777e3;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
-  <header id="main-header" class="magictime puffIn">
-    <div class="container">
-      <h1 class="fade-in">Arnav Jain</h1>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header>
+    <h1>Arnav Jain</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="magictime spaceInUp">
-    <div class="hero-content">
-      <h2 class="slide-in-left">Hi, I'm Arnav!</h2>
-      <p class="fade-in">I turn data into actionable insights and build intelligent systems for tomorrow's challenges.</p>
-      <a href="#projects" class="btn pulse">Check My Work</a>
-    </div>
-    <div class="scroll-indicator">⬇️ Scroll to Explore</div>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a data enthusiast with a passion for Machine Learning, Data Science, and creating impactful solutions. I specialize in predictive modeling, algorithmic trading, and storytelling through data visualization. Let's connect to discuss how I can add value to your projects!</p>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="magictime vanishIn">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>I am a data enthusiast with a passion for Machine Learning, Data Science, and creating impactful solutions. I specialize in predictive modeling, algorithmic trading, and storytelling through data visualization. Let's connect to discuss how I can add value to your projects!</p>
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="card">
+      <h3>Programming</h3>
+      <p>Python, R, SQL, Java, Scala</p>
     </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="magictime perspectiveRightReturn">
-    <div class="container">
-      <h2>My Skills</h2>
-      <div class="skills-grid">
-        <div class="skill zoom-in">
-          <i class="fas fa-code"></i>
-          <h3>Programming</h3>
-          <p>Python, R, SQL, Java, Scala</p>
-        </div>
-        <div class="skill zoom-in">
-          <i class="fas fa-database"></i>
-          <h3>Data Engineering</h3>
-          <p>PySpark, PostgreSQL, MongoDB</p>
-        </div>
-        <div class="skill zoom-in">
-          <i class="fas fa-chart-line"></i>
-          <h3>Data Analysis</h3>
-          <p>Tableau, Power BI, Matplotlib</p>
-        </div>
-        <div class="skill zoom-in">
-          <i class="fas fa-brain"></i>
-          <h3>Machine Learning</h3>
-          <p>PyTorch, TensorFlow, Scikit-Learn</p>
-        </div>
-      </div>
+    <div class="card">
+      <h3>Data Engineering</h3>
+      <p>PySpark, PostgreSQL, MongoDB</p>
+    </div>
+    <div class="card">
+      <h3>Data Analysis</h3>
+      <p>Tableau, Power BI, Matplotlib</p>
+    </div>
+    <div class="card">
+      <h3>Machine Learning</h3>
+      <p>PyTorch, TensorFlow, Scikit-Learn</p>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="magictime swap">
-    <div class="container">
-      <h2>My Projects</h2>
-      <div class="projects-grid">
-        <div class="project hover-zoom">
-          <h3>Reinforcement Learning Trading Agent</h3>
-          <p>A PPO-based RL agent for portfolio optimization.</p>
-          <a href="#">View Project</a>
-        </div>
-        <div class="project hover-zoom">
-          <h3>Fraud Detection System</h3>
-          <p>A real-time ML pipeline to detect fraudulent transactions.</p>
-          <a href="#">View Project</a>
-        </div>
-        <div class="project hover-zoom">
-          <h3>Depression Prediction Dashboard</h3>
-          <p>Visualizing health data with predictive analytics.</p>
-          <a href="#">View Project</a>
-        </div>
-      </div>
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="card">
+      <h3>Reinforcement Learning Trading Agent</h3>
+      <p>A PPO-based RL agent for portfolio optimization.</p>
+    </div>
+    <div class="card">
+      <h3>Fraud Detection System</h3>
+      <p>A real-time ML pipeline to detect fraudulent transactions.</p>
+    </div>
+    <div class="card">
+      <h3>Depression Prediction Dashboard</h3>
+      <p>Visualizing health data with predictive analytics.</p>
     </div>
   </section>
 
-  <!-- Experience Section -->
-  <section id="experience" class="magictime perspectiveUpReturn">
-    <div class="container">
-      <h2>Work Experience</h2>
-      <div class="experience-timeline">
-        <div class="experience-item slide-in-left">
-          <h3>Data Scientist - Center of Gambling Studies</h3>
-          <p>Leveraged 4.5TB of data to develop predictive models and mitigate gambling risks.</p>
-          <span>2023 - Present</span>
-        </div>
-        <div class="experience-item slide-in-left">
-          <h3>Quant Researcher - Hedge Fund</h3>
-          <p>Designed ML-driven trading strategies and backtested them against benchmarks.</p>
-          <span>2022 - 2023</span>
-        </div>
-      </div>
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <div class="card">
+      <h3>Data Scientist - Center of Gambling Studies</h3>
+      <p>Leveraged 4.5TB of data to develop predictive models and mitigate gambling risks.</p>
+    </div>
+    <div class="card">
+      <h3>Quant Researcher - Hedge Fund</h3>
+      <p>Designed ML-driven trading strategies and backtested them against benchmarks.</p>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="magictime perspectiveDownReturn">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>I'm always open to collaborating on exciting projects or discussing innovative ideas. Feel free to reach out!</p>
-      <div class="contact-links">
-        <a href="mailto:arnavjain@example.com">Email Me</a>
-        <a href="https://www.linkedin.com/in/arnavj19">LinkedIn</a>
-        <a href="https://arnavxdata.com">Portfolio</a>
-      </div>
-    </div>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>I'm always open to collaborating on exciting projects or discussing innovative ideas. Feel free to reach out!</p>
+    <a href="mailto:arnavjain@example.com" class="btn">Email Me</a>
+    <a href="https://www.linkedin.com/in/arnavj19" class="btn">LinkedIn</a>
   </section>
 
-  <footer class="magictime puffIn">
-    <div class="container">
-      <p>&copy; 2025 Arnav Jain. All Rights Reserved.</p>
-    </div>
+  <footer>
+    <p>&copy; 2025 Arnav Jain. All Rights Reserved.</p>
   </footer>
-
- <script>
-  // GSAP Animations with Smooth Easing
-  gsap.from(".fade-in", { opacity: 0, duration: 1, y: 50, ease: "power2.out" });
-  gsap.from(".fade-in-up", { opacity: 0, duration: 1, y: 100, stagger: 0.3, ease: "power2.out" });
-  gsap.from(".slide-in-left", { opacity: 0, duration: 1, x: -100, stagger: 0.3, ease: "power2.out" });
-  gsap.from(".zoom-in", { opacity: 0, duration: 1, scale: 0.8, stagger: 0.3, ease: "elastic.out(1, 0.3)" });
-  gsap.to(".pulse", { scale: 1.1, duration: 0.6, repeat: -1, yoyo: true, ease: "sine.inOut" });
-</script>
-
 </body>
 </html>
