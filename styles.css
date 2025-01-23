@@ -28,10 +28,11 @@ body {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 2rem;
-  max-width: 800px;
+  gap: 1.5rem;
+  max-width: 900px;
   margin: 0 auto;
   justify-items: center;
+  align-items: center;
 }
 
 .skill-icon {
@@ -77,11 +78,4 @@ body {
 .skill-icon:hover::after {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Additional Layout Improvements */
-.skills-grid img {
-  border-radius: 50%;
-  background: #fff;
-  padding: 5px;
 }
