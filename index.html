@@ -10,11 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- GSAP for Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-AQpsH/uUEVcnfgw1/CiRCnxHB+O3z4e8kvwP68+mUmx4SmV+AsuXGJfrANk9xH4Bj7eVB4h5y3QZ2A6Kv8O+jA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
   <header id="main-header">
     <div class="container">
-      <h1>Arnav Jain</h1>
+      <h1 class="fade-in">Arnav Jain</h1>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
@@ -30,15 +32,15 @@
   <!-- Hero Section -->
   <section id="hero">
     <div class="hero-content">
-      <h2>Hi, I'm Arnav!</h2>
-      <p>I turn data into actionable insights and build intelligent systems for tomorrow's challenges.</p>
-      <a href="#projects" class="btn">Check My Work</a>
+      <h2 class="slide-in-left">Hi, I'm Arnav!</h2>
+      <p class="fade-in">I turn data into actionable insights and build intelligent systems for tomorrow's challenges.</p>
+      <a href="#projects" class="btn pulse">Check My Work</a>
     </div>
     <div class="scroll-indicator">⬇️ Scroll to Explore</div>
   </section>
 
   <!-- About Section -->
-  <section id="about">
+  <section id="about" class="fade-in">
     <div class="container">
       <h2>About Me</h2>
       <p>I am a data enthusiast with a passion for Machine Learning, Data Science, and creating impactful solutions. I specialize in predictive modeling, algorithmic trading, and storytelling through data visualization. Let's connect to discuss how I can add value to your projects!</p>
@@ -46,26 +48,26 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills">
+  <section id="skills" class="fade-in-up">
     <div class="container">
       <h2>My Skills</h2>
       <div class="skills-grid">
-        <div class="skill">
+        <div class="skill zoom-in">
           <i class="fas fa-code"></i>
           <h3>Programming</h3>
           <p>Python, R, SQL, Java, Scala</p>
         </div>
-        <div class="skill">
+        <div class="skill zoom-in">
           <i class="fas fa-database"></i>
           <h3>Data Engineering</h3>
           <p>PySpark, PostgreSQL, MongoDB</p>
         </div>
-        <div class="skill">
+        <div class="skill zoom-in">
           <i class="fas fa-chart-line"></i>
           <h3>Data Analysis</h3>
           <p>Tableau, Power BI, Matplotlib</p>
         </div>
-        <div class="skill">
+        <div class="skill zoom-in">
           <i class="fas fa-brain"></i>
           <h3>Machine Learning</h3>
           <p>PyTorch, TensorFlow, Scikit-Learn</p>
@@ -75,21 +77,21 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects">
+  <section id="projects" class="fade-in-up">
     <div class="container">
       <h2>My Projects</h2>
       <div class="projects-grid">
-        <div class="project">
+        <div class="project hover-zoom">
           <h3>Reinforcement Learning Trading Agent</h3>
           <p>A PPO-based RL agent for portfolio optimization.</p>
           <a href="#">View Project</a>
         </div>
-        <div class="project">
+        <div class="project hover-zoom">
           <h3>Fraud Detection System</h3>
           <p>A real-time ML pipeline to detect fraudulent transactions.</p>
           <a href="#">View Project</a>
         </div>
-        <div class="project">
+        <div class="project hover-zoom">
           <h3>Depression Prediction Dashboard</h3>
           <p>Visualizing health data with predictive analytics.</p>
           <a href="#">View Project</a>
@@ -99,16 +101,16 @@
   </section>
 
   <!-- Experience Section -->
-  <section id="experience">
+  <section id="experience" class="fade-in-up">
     <div class="container">
       <h2>Work Experience</h2>
       <div class="experience-timeline">
-        <div class="experience-item">
+        <div class="experience-item slide-in-left">
           <h3>Data Scientist - Center of Gambling Studies</h3>
           <p>Leveraged 4.5TB of data to develop predictive models and mitigate gambling risks.</p>
           <span>2023 - Present</span>
         </div>
-        <div class="experience-item">
+        <div class="experience-item slide-in-left">
           <h3>Quant Researcher - Hedge Fund</h3>
           <p>Designed ML-driven trading strategies and backtested them against benchmarks.</p>
           <span>2022 - 2023</span>
@@ -118,7 +120,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <div class="container">
       <h2>Contact Me</h2>
       <p>I'm always open to collaborating on exciting projects or discussing innovative ideas. Feel free to reach out!</p>
@@ -135,5 +137,14 @@
       <p>&copy; 2025 Arnav Jain. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // GSAP Animations
+    gsap.from(".fade-in", { opacity: 0, duration: 1, y: 50 });
+    gsap.from(".fade-in-up", { opacity: 0, duration: 1, y: 100, stagger: 0.2 });
+    gsap.from(".slide-in-left", { opacity: 0, duration: 1, x: -100, stagger: 0.2 });
+    gsap.from(".zoom-in", { opacity: 0, duration: 1, scale: 0.8, stagger: 0.2 });
+    gsap.to(".pulse", { scale: 1.1, duration: 0.6, repeat: -1, yoyo: true });
+  </script>
 </body>
 </html>
