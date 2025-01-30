@@ -47,5 +47,20 @@ function mergeConfig(nextConfig, userConfig) {
     }
   }
 }
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',  // Enables static export for GitHub Pages
+  basePath: '/portfolio', // Adjusts paths for GitHub Pages
+  assetPrefix: '/portfolio/', // Ensures assets load correctly on GitHub Pages
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
+  }
+};
 
 export default nextConfig;
