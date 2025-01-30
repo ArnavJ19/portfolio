@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Enables static export for GitHub Pages
-  basePath: '/portfolio', // Ensures correct subdirectory on GitHub Pages
-  assetPrefix: '/portfolio/', // Fixes missing styles, images, and fonts
+  output: 'export', // Enables static site export
+  basePath: '/portfolio', // Ensures correct subdirectory for GitHub Pages
+  assetPrefix: '/portfolio/', // Fixes missing assets
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
-  images: { unoptimized: true }, // Fixes image loading issues on GitHub Pages
+  images: { unoptimized: true }, // Prevents Next.js Image Optimization issues
 };
 
 export default nextConfig;
