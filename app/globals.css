@@ -31,12 +31,12 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 14px;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 640px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
@@ -46,7 +46,19 @@ html {
   }
 }
 
+@media (min-width: 1280px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 @media (min-width: 1536px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1920px) {
   html {
     font-size: 18px;
   }
@@ -111,27 +123,33 @@ body {
     linear-gradient(90deg, rgba(0, 122, 255, 0.1) 1px, transparent 1px),
     linear-gradient(rgba(88, 86, 214, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(88, 86, 214, 0.05) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
   background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1024px) {
   .math-grid {
-    background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .math-grid {
+    background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
   }
 }
 
 .skill-bar {
-  height: 8px;
+  height: 6px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1024px) {
   .skill-bar {
-    height: 6px;
+    height: 8px;
   }
 }
 
@@ -168,13 +186,14 @@ body {
 }
 
 .interactive-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 122, 255, 0.2);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 24px rgba(0, 122, 255, 0.15);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1024px) {
   .interactive-card:hover {
-    transform: translateY(-4px) scale(1.01);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 32px rgba(0, 122, 255, 0.2);
   }
 }
 
@@ -182,9 +201,9 @@ body {
   background: linear-gradient(135deg, #007aff, #5856d6);
   border: none;
   border-radius: 12px;
-  padding: 16px 32px;
+  padding: 12px 24px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -192,10 +211,10 @@ body {
   overflow: hidden;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1024px) {
   .btn-primary {
-    padding: 12px 24px;
-    font-size: 14px;
+    padding: 16px 32px;
+    font-size: 16px;
   }
 }
 
@@ -216,26 +235,32 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 122, 255, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 122, 255, 0.3);
+}
+
+@media (min-width: 1024px) {
+  .btn-primary:hover {
+    box-shadow: 0 12px 24px rgba(0, 122, 255, 0.3);
+  }
 }
 
 .btn-secondary {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  padding: 16px 32px;
+  padding: 12px 24px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--text-primary);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   backdrop-filter: blur(10px);
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1024px) {
   .btn-secondary {
-    padding: 12px 24px;
-    font-size: 14px;
+    padding: 16px 32px;
+    font-size: 16px;
   }
 }
 
@@ -277,17 +302,16 @@ body {
   font-family: "Times New Roman", serif;
   font-style: italic;
   color: var(--text-secondary);
-  font-size: 14px;
-}
-
-@media (max-width: 640px) {
-  .equation {
-    font-size: 12px;
-  }
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+}
+
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -313,7 +337,13 @@ body {
 }
 
 .tech-glow {
-  box-shadow: 0 0 30px rgba(0, 122, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 122, 255, 0.2);
+}
+
+@media (min-width: 1024px) {
+  .tech-glow {
+    box-shadow: 0 0 30px rgba(0, 122, 255, 0.3);
+  }
 }
 
 .tech-gradient {
@@ -337,5 +367,46 @@ body {
 
 .tech-grid {
   background-image: radial-gradient(circle, rgba(0, 122, 255, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-size: 16px 16px;
+}
+
+@media (min-width: 1024px) {
+  .tech-grid {
+    background-size: 20px 20px;
+  }
+}
+
+/* Container max-widths for better desktop viewing */
+.container {
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
 }

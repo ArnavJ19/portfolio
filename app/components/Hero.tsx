@@ -96,7 +96,7 @@ const Hero = () => {
         ].map((eq, i) => (
           <motion.div
             key={i}
-            className="absolute equation opacity-30 select-none"
+            className="absolute equation opacity-30 select-none text-xs sm:text-sm lg:text-base"
             style={{ left: eq.x, top: eq.y }}
             animate={{
               opacity: [0.15, 0.4, 0.15],
@@ -115,20 +115,20 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-16"
+          className="mb-12 lg:mb-16"
         >
-          <div className="inline-flex items-center gap-3 glass px-6 py-3 rounded-full">
+          <div className="inline-flex items-center gap-3 glass px-4 sm:px-6 py-2 sm:py-3 rounded-full">
             <motion.div
-              className="w-3 h-3 rounded-full status-online"
+              className="w-2 h-2 sm:w-3 sm:h-3 rounded-full status-online"
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
             />
-            <span className="font-mono text-sm text-white">System Online • Ready for Analysis</span>
+            <span className="font-mono text-xs sm:text-sm text-white">System Online • Ready for Analysis</span>
           </div>
         </motion.div>
 
@@ -136,10 +136,14 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-8"
+          className="mb-6 lg:mb-8"
         >
-          <h1 className="text-8xl md:text-9xl font-bold leading-none">
-            <motion.div className="block text-white mb-4" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-none">
+            <motion.div
+              className="block text-white mb-2 lg:mb-4"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
               ARNAV
             </motion.div>
             <motion.div className="block text-primary-blue" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
@@ -152,9 +156,9 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mb-8"
+          className="mb-6 lg:mb-8"
         >
-          <div className="font-mono text-2xl md:text-3xl h-12 flex items-center justify-center">
+          <div className="font-mono text-lg sm:text-xl md:text-2xl lg:text-3xl h-8 sm:h-10 lg:h-12 flex items-center justify-center">
             <span className="text-blue-500 mr-2">{">"}</span>
             <span className="text-white">{displayText}</span>
             <motion.span
@@ -171,7 +175,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed"
+          className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto mb-8 lg:mb-12 leading-relaxed px-4"
         >
           Transforming complex datasets into strategic insights through advanced machine learning, statistical modeling,
           and algorithmic innovation. Building intelligent systems that drive data-driven decision making.
@@ -181,28 +185,28 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+          className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center mb-12 lg:mb-16"
         >
           <motion.button
             onClick={scrollToNext}
-            className="btn-primary inline-flex items-center gap-3"
+            className="btn-primary inline-flex items-center justify-center gap-3 px-6 py-3 lg:px-8 lg:py-4"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Play className="w-5 h-5" />
-            Explore My Work
+            <Play className="w-4 h-4 lg:w-5 lg:h-5" />
+            <span className="text-sm lg:text-base">Explore My Work</span>
           </motion.button>
 
           <motion.a
             href="https://arnavjresume.tiiny.site"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary inline-flex items-center gap-3"
+            className="btn-secondary inline-flex items-center justify-center gap-3 px-6 py-3 lg:px-8 lg:py-4"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Download className="w-5 h-5" />
-            Download Resume
+            <Download className="w-4 h-4 lg:w-5 lg:h-5" />
+            <span className="text-sm lg:text-base">Download Resume</span>
           </motion.a>
         </motion.div>
 
@@ -210,7 +214,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.1 }}
-          className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-16"
+          className="grid grid-cols-3 gap-4 lg:gap-8 max-w-xl lg:max-w-2xl mx-auto mb-12 lg:mb-16"
         >
           {[
             { icon: Code2, value: "10+", label: "ML Projects", color: "text-blue-500" },
@@ -219,15 +223,15 @@ const Hero = () => {
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
-              className="glass-strong rounded-2xl p-6 interactive-card"
+              className="glass-strong rounded-xl lg:rounded-2xl p-4 lg:p-6 interactive-card"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3 + index * 0.1 }}
               whileHover={{ scale: 1.05 }}
             >
-              <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3`} />
-              <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-              <div className="text-sm text-gray-400 font-mono">{stat.label}</div>
+              <stat.icon className={`w-6 h-6 lg:w-8 lg:h-8 ${stat.color} mx-auto mb-2 lg:mb-3`} />
+              <div className="text-xl lg:text-3xl font-bold text-white mb-1">{stat.value}</div>
+              <div className="text-xs lg:text-sm text-gray-400 font-mono">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -245,10 +249,10 @@ const Hero = () => {
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="font-mono text-sm text-gray-400 group-hover:text-white transition-colors">
+            <span className="font-mono text-xs sm:text-sm text-gray-400 group-hover:text-white transition-colors">
               Scroll to explore
             </span>
-            <ChevronDown className="w-6 h-6 text-blue-500" />
+            <ChevronDown className="w-5 h-5 lg:w-6 lg:h-6 text-blue-500" />
           </motion.div>
         </motion.button>
       </div>
