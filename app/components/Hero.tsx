@@ -2,14 +2,21 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ChevronDown, Play, Download, Code2, BarChart3, Brain } from "lucide-react"
+import { ChevronDown, Play, Download, Code2, Brain, Database } from "lucide-react"
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0)
   const [displayText, setDisplayText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
 
-  const roles = ["Data Scientist", "ML Engineer", "AI Researcher", "Quantitative Analyst", "Options Trader", "Data Analyst"]
+  const roles = [
+    "Data Scientist",
+    "ML Engineer",
+    "AI Researcher",
+    "Quantitative Analyst",
+    "Options Trader",
+    "Data Analyst",
+  ]
 
   useEffect(() => {
     const currentText = roles[currentRole]
@@ -113,7 +120,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-12"
+          className="mb-16"
         >
           <div className="inline-flex items-center gap-3 glass px-6 py-3 rounded-full">
             <motion.div
@@ -206,8 +213,8 @@ const Hero = () => {
           className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-16"
         >
           {[
-            { icon: Code2, value: "15+", label: "ML Projects", color: "text-blue-500" },
-            { icon: BarChart3, value: "99.2%", label: "Model Accuracy", color: "text-green-500" },
+            { icon: Code2, value: "10+", label: "ML Projects", color: "text-blue-500" },
+            { icon: Database, value: "50+", label: "Datasets Analyzed", color: "text-yellow-500" },
             { icon: Brain, value: "3+", label: "Years Experience", color: "text-purple-500" },
           ].map((stat, index) => (
             <motion.div

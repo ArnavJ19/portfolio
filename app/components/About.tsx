@@ -48,7 +48,7 @@ const About = () => {
 
             {
               icon: DollarSign,
-              title: "Quant Trad",
+              title: "Quant Trader",
               description:
                 "Algorithmic trading strategies powered by quantitative models, market microstructure analysis, and real-time risk management.",
             },
