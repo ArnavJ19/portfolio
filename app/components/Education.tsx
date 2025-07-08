@@ -23,7 +23,7 @@ const Education = () => {
         "Big Data Analytics",
         "Data Visualization",
         "Computational Mathematics",
-        "Data Mining"
+        "Data Mining",
         "Financial Data Analysis",
       ],
       achievements: ["Top 5% of Graduating Class", "ML Research Publication (In Review)"],
