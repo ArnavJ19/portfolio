@@ -1,188 +1,137 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import Image from "next/image"
-import { Spotlight } from "./ui/spotlight"
-import { AnimatedGradient } from "./ui/animated-gradient"
-
-const skillGroups = [
-  {
-    category: "Data Visualization",
-    skills: [
-      { name: "Tableau", icon: "https://cdn.worldvectorlogo.com/logos/tableau-software.svg" },
-      { name: "Matplotlib", icon: "https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" },
-      { name: "Seaborn", icon: "https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" },
-      { name: "ggplot", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/r/r-original.svg" },
-    ],
-  },
-  {
-    category: "Data Analytics & Business Intelligence",
-    skills: [
-      {
-        name: "Excel",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg",
-      },
-      { name: "SPSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spss/spss-original.svg" },
-      { name: "Power BI", icon: "https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg" },
-      { name: "Tableau", icon: "https://cdn.worldvectorlogo.com/logos/tableau-software.svg" },
-      { name: "Streamlit", icon: "https://streamlit.io/images/brand/streamlit-mark-color.svg" },
-    ],
-  },
-  {
-    category: "Machine Learning & Deep Learning",
-    skills: [
-      { name: "scikit-learn", icon: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
-      {
-        name: "TensorFlow",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg",
-      },
-      {
-        name: "PyTorch",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/pytorch/pytorch-original.svg",
-      },
-      {
-        name: "Pandas",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg",
-      },
-      {
-        name: "NumPy",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg",
-      },
-      {
-        name: "Gymnasium",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
-      },
-    ],
-  },
-  {
-    category: "Big Data & Cloud Computing",
-    skills: [
-      {
-        name: "Microsoft Azure",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg",
-      },
-      {
-        name: "Apache Spark",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/apache/apache-original.svg",
-      },
-      {
-        name: "Hadoop",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/hadoop/hadoop-original.svg",
-      },
-      {
-        name: "Kafka",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/apachekafka/apachekafka-original.svg",
-      },
-      {
-        name: "MongoDB",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
-      },
-    ],
-  },
-  {
-    category: "Database Management",
-    skills: [
-      {
-        name: "PostgreSQL",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
-      },
-      { name: "SQL", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" },
-    ],
-  },
-  {
-    category: "Software Development & Version Control",
-    skills: [
-      { name: "Git", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" },
-      {
-        name: "GitHub",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg",
-      },
-    ],
-  },
-  {
-    category: "Programming Languages",
-    skills: [
-      {
-        name: "Python",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
-      },
-      { name: "R", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/r/r-original.svg" },
-      {
-        name: "Scala",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/scala/scala-original.svg",
-      },
-      { name: "Java", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" },
-      {
-        name: "C/C++",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg",
-      },
-    ],
-  },
-]
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
 
 const Skills = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
+
+  const skillCategories = [
+    {
+      title: "Programming Languages",
+      icon: "💻",
+      skills: [
+        { name: "Python", level: 95, color: "bg-blue-500" },
+        { name: "R", level: 88, color: "bg-green-500" },
+        { name: "SQL", level: 92, color: "bg-purple-500" },
+        { name: "Java", level: 82, color: "bg-yellow-500" },
+        { name: "C++", level: 87, color: "bg-orange-500" },
+      ],
+    },
+    {
+      title: "ML/AI Frameworks",
+      icon: "🤖",
+      skills: [
+        { name: "TensorFlow", level: 92, color: "bg-orange-500" },
+        { name: "PyTorch", level: 88, color: "bg-red-500" },
+        { name: "Scikit-learn", level: 96, color: "bg-blue-500" },
+        { name: "Pandas", level: 94, color: "bg-green-500" },
+        { name: "NumPy", level: 91, color: "bg-purple-500" },
+      ],
+    },
+    {
+      title: "Data & Cloud",
+      icon: "☁️",
+      skills: [
+        { name: "Apache Spark", level: 85, color: "bg-orange-500" },
+        { name: "AWS", level: 80, color: "bg-yellow-500" },
+        { name: "Azure", level: 88, color: "bg-cyan-500" },
+        { name: "MongoDB", level: 83, color: "bg-green-500" },
+        { name: "PostgreSQL", level: 94, color: "bg-purple-500" },
+      ],
+    },
+    {
+      title: "Analytics & Visualization",
+      icon: "📊",
+      skills: [
+        { name: "Tableau", level: 91, color: "bg-purple-500" },
+        { name: "Power BI", level: 95, color: "bg-yellow-500" },
+        { name: "Excel", level: 93, color: "bg-green-500" },
+        { name: "SPSS", level: 76, color: "bg-red-500" },
+        { name: "R-Studio", level: 90, color: "bg-blue-500" },
+      ],
+    },
+  ]
 
   return (
-    <Spotlight className="py-20 bg-[#0A0A0A]">
-      <div className="container mx-auto px-6">
+    <section id="skills" className="py-32 relative overflow-hidden">
+      <div className="absolute inset-0 math-grid opacity-20" />
+      <div className="absolute inset-0 data-viz opacity-10" />
+
+      <div className="container mx-auto px-6" ref={ref}>
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-center mb-20"
         >
-          <AnimatedGradient className="inline-block mb-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-white px-4 py-2">Skills</h2>
-          </AnimatedGradient>
-          <p className="text-gray-400">The skills, tools and technologies I am really good at:</p>
+          <div className="inline-block glass px-6 py-3 rounded-full mb-6">
+            <span className="font-mono text-sm text-blue-400">Skills.compile()</span>
+          </div>
+
+          <h2 className="text-6xl md:text-7xl font-bold mb-8">
+            <span className="text-secondary-purple">TECH STACK</span>
+          </h2>
+
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            A comprehensive toolkit spanning machine learning, data engineering, cloud computing, and advanced analytics
+            with proven expertise across multiple domains.
+          </p>
         </motion.div>
 
-        {skillGroups.map((group, groupIndex) => (
-          <motion.div
-            key={group.category}
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
-          >
-            <h3 className="text-xl font-semibold mb-6 text-blue-400">{group.category}</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-              {group.skills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  className="flex flex-col items-center justify-center p-4 bg-[#1A1A1A] rounded-lg transition-colors"
-                  whileHover={{ scale: 1.05, backgroundColor: "#252525" }}
-                  transition={{ duration: 0.3 }}
-                >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {skillCategories.map((category, categoryIndex) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+              className="glass-strong rounded-3xl p-8"
+            >
+              <div className="flex items-center gap-4 mb-8">
+                <div className="text-4xl">{category.icon}</div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white">{category.title}</h3>
+                  <p className="text-gray-400 font-mono text-sm">{category.skills.length} technologies mastered</p>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                {category.skills.map((skill, skillIndex) => (
                   <motion.div
-                    className="w-12 h-12 mb-3 relative"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
+                    key={skill.name}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.5, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
+                    className="group"
                   >
-                    <Image
-                      src={skill.icon || "/placeholder.svg"}
-                      alt={skill.name}
-                      width={48}
-                      height={48}
-                      className="w-full h-full object-contain filter brightness-100 hover:brightness-110 transition-all"
-                    />
+                    <div className="flex justify-between items-center mb-3">
+                      <span className="text-white font-medium text-lg">{skill.name}</span>
+                      <span className="font-mono text-blue-400 text-sm font-bold">{skill.level}%</span>
+                    </div>
+
+                    <div className="skill-bar">
+                      <motion.div
+                        className={`skill-bar-fill ${skill.color}`}
+                        initial={{ width: 0 }}
+                        animate={isInView ? { width: `${skill.level}%` } : {}}
+                        transition={{
+                          duration: 1.5,
+                          delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.3,
+                          ease: [0.25, 0.46, 0.45, 0.94],
+                        }}
+                      />
+                    </div>
                   </motion.div>
-                  <span className="text-sm text-gray-300 text-center">{skill.name}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </Spotlight>
+    </section>
   )
 }
 
 export default Skills
-

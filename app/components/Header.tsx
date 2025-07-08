@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
-import { motion } from "framer-motion"
+import { Menu, X } from "lucide-react"
 
-const Header = () => {
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -15,32 +15,56 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const navItems = [
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#projects", label: "Projects" },
+    { href: "#experience", label: "Experience" },
+    { href: "#education", label: "Education" },
+    { href: "#contact", label: "Contact" },
+  ]
+
   return (
-    <motion.header
+    <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#0A0A0A] shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-black/80 backdrop-blur-md" : "bg-transparent"
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
     >
-      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-white">
-          Arnav Jain
-        </Link>
-        <ul className="flex space-x-6">
-          {["About", "Skills", "Projects", "Experience", "Contact"].map((item) => (
-            <li key={item}>
-              <Link href={`#${item.toLowerCase()}`} className="text-gray-300 hover:text-white transition-colors">
-                {item}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </motion.header>
+      <div className="container mx-auto px-6">
+        <nav className="flex items-center justify-between h-16">
+          <div className="text-2xl font-bold text-blue-400">Arnav Jain</div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <a key={item.href} href={item.href} className="text-gray-300 hover:text-white transition-colors">
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="block py-2 text-gray-300 hover:text-white transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
   )
 }
-
-export default Header
-

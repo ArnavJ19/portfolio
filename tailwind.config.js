@@ -5,46 +5,12 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "*.{js,ts,jsx,tsx,mdx}",
     "app/**/*.{ts,tsx}",
     "components/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
-      animation: {
-        "gradient-x": "gradient-x 3s ease infinite",
-        "gradient-y": "gradient-y 3s ease infinite",
-        "gradient-xy": "gradient-xy 3s ease infinite",
-      },
-      keyframes: {
-        "gradient-y": {
-          "0%, 100%": {
-            "background-size": "400% 400%",
-            "background-position": "center top",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "center center",
-          },
-        },
-        "gradient-x": {
-          "0%, 100%": {
-            "background-position": "200% center",
-          },
-          "50%": {
-            "background-position": "-200% center",
-          },
-        },
-        "gradient-xy": {
-          "0%, 100%": {
-            "background-size": "400% 400%",
-            "background-position": "left top",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "right bottom",
-          },
-        },
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -80,13 +46,38 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontFamily: {
+        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        sans: ["var(--font-space-grotesk)", "sans-serif"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      animation: {
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
+      },
+      keyframes: {
+        "pulse-glow": {
+          "0%, 100%": {
+            boxShadow: "0 0 20px rgba(0, 255, 136, 0.1)",
+          },
+          "50%": {
+            boxShadow: "0 0 30px rgba(0, 255, 136, 0.3)",
+          },
+        },
+        float: {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
 }
-

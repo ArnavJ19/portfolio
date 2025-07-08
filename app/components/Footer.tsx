@@ -11,10 +11,10 @@ const Footer = () => {
             </Link>
           </div>
           <div className="flex space-x-4">
-            <a href="https://www.linkedin.com/in/your-linkedin" className="hover:text-blue-400 transition-colors">
+            <a href="https://www.linkedin.com/in/arnavj19" className="hover:text-blue-400 transition-colors">
               LinkedIn
             </a>
-            <a href="https://github.com/your-github" className="hover:text-blue-400 transition-colors">
+            <a href="https://github.com/arnavj19" className="hover:text-blue-400 transition-colors">
               GitHub
             </a>
             <a href="mailto:arnavj19@outlook.com" className="hover:text-blue-400 transition-colors">
@@ -31,4 +31,3 @@ const Footer = () => {
 }
 
 export default Footer
-
