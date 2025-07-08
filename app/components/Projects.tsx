@@ -10,45 +10,77 @@ const Projects = () => {
   const isInView = useInView(ref, { once: true, threshold: 0.1 })
 
   const projects = [
-    {
+    
+      {
       id: "01",
+      title: "GammaX: OPTION PRICING TOOL",
+      description: "An advanced Option Pricing and Analytics tool built using Python and StreamLit",
+      tech: ["Python", "Streamlit", "Finance", "Options"],
+      image: "/images/gammax-delta-surface.png",
+      github: "https://github.com/ArnavJ19/GammaX",
+      live: "https://gammax-optionpricing.streamlit.app",
+      featured: false,
+    },
+    {
+      id: "02",
       title: "AI TRADING SYSTEM",
       description:
         "Reinforcement learning agent for automated trading with 15% performance improvement over traditional strategies.",
       tech: ["Python", "TensorFlow", "RL", "Finance"],
       image: "/images/ai-trading-dashboard.jpg",
       github: "https://github.com/ArnavJ19/RL_Agent_Trading",
+      live: null,
       featured: false,
     },
     {
-      id: "02",
+      id: "03",
       title: "PORTFOLIO OPTIMIZER",
       description: "ML-powered portfolio optimization using clustering algorithms for risk-adjusted returns.",
       tech: ["Python", "Scikit-learn", "Finance", "ML"],
       image: "/images/portfolio-allocation.jpg",
       github: "https://github.com/ArnavJ19/PortfolioML",
+      live: null,
       featured: false,
     },
     {
-      id: "03",
+      id: "04",
       title: "HEALTH PREDICTOR",
       description: "Depression prediction model using BRFSS dataset with 75% accuracy across multiple classes.",
       tech: ["R", "Python", "Healthcare", "ML"],
       image: "/images/ai-health-brain.png",
       github: "https://github.com/ArnavJ19/Depression-Prediction-Using-Health-Data",
-      featured: false,
-    },
-    {
-      id: "04",
-      title: "GammaX: OPTION PRICING TOOL",
-      description: "An advanced Option Pricing and Analytics tool built using Python and StreamLit",
-      tech: ["Python", "Streamlit", "Finance", "Options"],
-      image: "/images/gammax-delta-surface.png",
-      github: "https://github.com/ArnavJ19/Depression-Prediction-Using-Health-Data",
-      live: "https://gammax-optionpricing.streamlit.app",
+      live: null,
       featured: false,
     },
   ]
+
+  const handleLinkClick = (url: string, type: "github" | "live") => {
+    try {
+      // Add a small delay to ensure the click is registered
+      setTimeout(() => {
+        // Create a temporary anchor element for better compatibility
+        const link = document.createElement("a")
+        link.href = url
+        link.target = "_blank"
+        link.rel = "noopener noreferrer"
+
+        // Append to body, click, and remove
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      }, 100)
+    } catch (error) {
+      console.error(`Error opening ${type} link:`, error)
+      // Fallback: try window.open
+      try {
+        window.open(url, "_blank", "noopener,noreferrer")
+      } catch (fallbackError) {
+        console.error("Fallback link opening failed:", fallbackError)
+        // Last resort: navigate in same window
+        window.location.href = url
+      }
+    }
+  }
 
   return (
     <section id="projects" className="py-20 relative">
@@ -122,25 +154,30 @@ const Projects = () => {
                   </div>
 
                   <div className="flex gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
+                    {/* GitHub Link */}
+                    <motion.button
+                      onClick={() => handleLinkClick(project.github, "github")}
+                      className="flex items-center gap-2 text-secondary hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-md px-2 py-1"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      aria-label={`View ${project.title} source code on GitHub`}
                     >
                       <Github className="w-4 h-4" />
                       <span className="font-mono text-sm">CODE</span>
-                    </a>
+                    </motion.button>
+
+                    {/* Live Demo Link */}
                     {project.live && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
+                      <motion.button
+                        onClick={() => handleLinkClick(project.live!, "live")}
+                        className="flex items-center gap-2 text-secondary hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-md px-2 py-1"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        aria-label={`View ${project.title} live demo`}
                       >
                         <ExternalLink className="w-4 h-4" />
                         <span className="font-mono text-sm">LIVE</span>
-                      </a>
+                      </motion.button>
                     )}
                   </div>
                 </div>
@@ -148,6 +185,32 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Additional Projects Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-16 text-center"
+        >
+          <div className="glass-strong rounded-3xl p-8 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6">More Projects Coming Soon</h3>
+            <p className="text-gray-300 mb-6">
+              Currently working on several exciting projects involving deep learning, computer vision, and advanced
+              analytics.
+            </p>
+            <motion.button
+              onClick={() => handleLinkClick("https://github.com/ArnavJ19", "github")}
+              className="btn-primary inline-flex items-center gap-3"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              aria-label="View all projects on GitHub"
+            >
+              <Github className="w-5 h-5" />
+              <span className="font-mono">VIEW_ALL_PROJECTS</span>
+            </motion.button>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

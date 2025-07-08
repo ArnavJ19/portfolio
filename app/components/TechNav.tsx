@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
@@ -21,42 +21,100 @@ const TechNav = () => {
     { id: "contact", label: "CONTACT" },
   ]
 
+  const scrollToSection = useCallback(
+    (sectionId: string) => {
+      try {
+        // Close mobile menu first
+        setIsOpen(false)
+
+        // Wait a bit for menu to close, then scroll
+        setTimeout(
+          () => {
+            const element = document.getElementById(sectionId)
+
+            if (!element) {
+              console.warn(`Element with id "${sectionId}" not found`)
+              return
+            }
+
+            // Calculate the offset position
+            const headerHeight = 80
+            const elementRect = element.getBoundingClientRect()
+            const absoluteElementTop = elementRect.top + window.pageYOffset
+            const targetPosition = absoluteElementTop - headerHeight
+
+            // Use both methods for better compatibility
+            try {
+              // Method 1: Modern smooth scroll
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth",
+              })
+            } catch (error) {
+              // Method 2: Fallback for older browsers
+              console.warn("Smooth scroll not supported, using fallback")
+              window.scrollTo(0, targetPosition)
+            }
+
+            // Update active section immediately for better UX
+            setActiveSection(sectionId)
+          },
+          isOpen ? 300 : 0,
+        )
+      } catch (error) {
+        console.error("Error scrolling to section:", error)
+      }
+    },
+    [isOpen],
+  )
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY
       setIsScrolled(scrollPosition > 50)
 
-      // Get all sections
-      const sections = navItems
-        .map((item) => {
-          const element = document.getElementById(item.id)
-          if (!element) return null
+      try {
+        // Get all sections with error handling
+        const sections = navItems
+          .map((item) => {
+            const element = document.getElementById(item.id)
+            if (!element) return null
 
-          const rect = element.getBoundingClientRect()
-          const offsetTop = scrollPosition + rect.top
+            const rect = element.getBoundingClientRect()
+            const offsetTop = scrollPosition + rect.top
 
-          return {
-            id: item.id,
-            offsetTop,
-            height: rect.height,
-            element,
+            return {
+              id: item.id,
+              offsetTop,
+              height: rect.height,
+              element,
+            }
+          })
+          .filter(Boolean)
+
+        if (sections.length === 0) return
+
+        // Find the current section with better logic
+        let currentSection = sections[0] // Default to first section
+
+        for (let i = 0; i < sections.length; i++) {
+          const section = sections[i]
+          if (!section) continue
+
+          const sectionTop = section.offsetTop - 150 // Larger offset for better detection
+
+          if (scrollPosition >= sectionTop) {
+            currentSection = section
+          } else {
+            break
           }
-        })
-        .filter(Boolean)
+        }
 
-      // Find the current section
-      const currentSection = sections.find((section, index) => {
-        if (!section) return false
-
-        const nextSection = sections[index + 1]
-        const sectionTop = section.offsetTop - 100 // Offset for header
-        const sectionBottom = nextSection ? nextSection.offsetTop - 100 : document.body.scrollHeight
-
-        return scrollPosition >= sectionTop && scrollPosition < sectionBottom
-      })
-
-      if (currentSection) {
-        setActiveSection(currentSection.id)
+        if (currentSection && currentSection.id !== activeSection) {
+          setActiveSection(currentSection.id)
+        }
+      } catch (error) {
+        console.error("Error in scroll handler:", error)
       }
     }
 
@@ -72,26 +130,14 @@ const TechNav = () => {
       }
     }
 
+    // Add scroll listener
     window.addEventListener("scroll", throttledScroll, { passive: true })
-    handleScroll() // Initial call
+
+    // Initial call with delay to ensure DOM is ready
+    setTimeout(handleScroll, 100)
 
     return () => window.removeEventListener("scroll", throttledScroll)
-  }, [navItems])
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      const headerOffset = 80 // Account for fixed header
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      })
-      setIsOpen(false)
-    }
-  }
+  }, [activeSection, navItems])
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -104,7 +150,10 @@ const TechNav = () => {
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+    }
+
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [isOpen])
 
@@ -121,6 +170,11 @@ const TechNav = () => {
     }
   }, [isOpen])
 
+  // Handle logo click
+  const handleLogoClick = useCallback(() => {
+    scrollToSection("hero")
+  }, [scrollToSection])
+
   return (
     <>
       <nav
@@ -132,10 +186,11 @@ const TechNav = () => {
           <div className="flex items-center justify-between h-14 lg:h-16">
             {/* Logo */}
             <motion.button
-              onClick={() => scrollToSection("hero")}
-              className="font-mono text-primary-blue font-bold text-base sm:text-lg hover:scale-105 transition-transform duration-300"
+              onClick={handleLogoClick}
+              className="font-mono text-primary-blue font-bold text-base sm:text-lg hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 rounded-md px-2 py-1"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="Go to home section"
             >
               ARNAV.DEV
             </motion.button>
@@ -146,13 +201,14 @@ const TechNav = () => {
                 <motion.button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative px-2 xl:px-3 py-1.5 font-mono text-xs transition-all duration-300 rounded-md ${
+                  className={`relative px-2 xl:px-3 py-1.5 font-mono text-xs transition-all duration-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 ${
                     activeSection === item.id
                       ? "text-blue-400 bg-blue-400/10"
                       : "text-gray-400 hover:text-white hover:bg-white/5"
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  aria-label={`Go to ${item.label.toLowerCase()} section`}
                 >
                   {item.label}
                   {activeSection === item.id && (
@@ -170,8 +226,9 @@ const TechNav = () => {
             <button
               id="mobile-menu-button"
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-blue-400 hover:text-white transition-colors duration-300 rounded-lg hover:bg-white/10"
+              className="lg:hidden p-2 text-blue-400 hover:text-white transition-colors duration-300 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
               aria-label="Toggle mobile menu"
+              aria-expanded={isOpen}
             >
               <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                 {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -212,11 +269,12 @@ const TechNav = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className={`w-full text-left p-3 font-mono text-sm transition-all duration-300 rounded-lg ${
+                      className={`w-full text-left p-3 font-mono text-sm transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 ${
                         activeSection === item.id
                           ? "text-blue-400 bg-blue-400/10 border border-blue-400/20"
                           : "text-gray-400 hover:text-white hover:bg-white/5"
                       }`}
+                      aria-label={`Go to ${item.label.toLowerCase()} section`}
                     >
                       <div className="flex items-center justify-between">
                         <span>{item.label}</span>
