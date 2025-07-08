@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Brain, Database, Code2, TrendingUp, Target } from "lucide-react"
+import { Brain, Database, Code2, TrendingUp, Target, DollarSign } from "lucide-react"
 
 const About = () => {
   const ref = useRef(null)
@@ -38,22 +38,25 @@ const About = () => {
             {
               icon: Brain,
               title: "Machine Learning",
-              description: "Advanced ML algorithms, deep learning, and neural networks",
+              description: "Building predictive models using supervised and unsupervised learning, feature engineering, and model optimization for real-world applications.",
             },
             {
               icon: Database,
               title: "Data Engineering",
-              description: "Big data processing, ETL pipelines, and data architecture",
+              description: "Designing scalable data pipelines, orchestrating ETL workflows, and architecting infrastructure for efficient data processing and analytics.",
             },
+
             {
-              icon: Code2,
-              title: "Programming",
-              description: "Python, R, SQL, and modern development frameworks",
+              icon: DollarSign,
+              title: "Quant Trad",
+              description:
+                "Algorithmic trading strategies powered by quantitative models, market microstructure analysis, and real-time risk management.",
             },
+
             {
               icon: TrendingUp,
               title: "Analytics",
-              description: "Statistical analysis, predictive modeling, and insights",
+              description: "Extracting actionable insights from data through statistical analysis, data visualization, and business intelligence to drive informed decision-making.",
             },
           ].map((item, index) => (
             <motion.div

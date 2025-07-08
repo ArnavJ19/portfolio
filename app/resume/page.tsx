@@ -2,9 +2,6 @@
 
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-
 
 export default function ResumePage() {
   return (

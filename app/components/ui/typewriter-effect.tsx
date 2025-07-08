@@ -3,8 +3,6 @@
 import { cn } from "@/lib/utils"
 import { motion, stagger, useAnimate, useInView } from "framer-motion"
 import { useEffect } from "react"
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const TypewriterEffect = ({
   words,
