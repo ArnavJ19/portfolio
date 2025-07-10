@@ -10,7 +10,7 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      icon: "💻",
+      icon: "",
       glowClass: "glow-blue",
       skills: [
         { name: "Python", level: 95, color: "bg-blue-500" },
@@ -22,7 +22,7 @@ const Skills = () => {
     },
     {
       title: "ML/AI Frameworks",
-      icon: "🤖",
+      icon: "",
       glowClass: "glow-purple",
       skills: [
         { name: "TensorFlow", level: 92, color: "bg-orange-500" },
@@ -34,7 +34,7 @@ const Skills = () => {
     },
     {
       title: "Data & Cloud",
-      icon: "☁️",
+      icon: "",
       glowClass: "glow-green",
       skills: [
         { name: "Apache Spark", level: 85, color: "bg-orange-500" },
@@ -46,7 +46,7 @@ const Skills = () => {
     },
     {
       title: "Analytics & Visualization",
-      icon: "📊",
+      icon: "",
       glowClass: "glow-yellow",
       skills: [
         { name: "Tableau", level: 91, color: "bg-purple-500" },
