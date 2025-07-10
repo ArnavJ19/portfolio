@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Calendar, Clock, ArrowRight, Tag } from "lucide-react"
+import { FaCalendarAlt, FaClock, FaArrowRight, FaTag } from "react-icons/fa"
 import Image from "next/image"
 
 const Blog = () => {
@@ -113,7 +113,7 @@ const Blog = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-16"
             >
-              <div className="glass-strong rounded-3xl overflow-hidden interactive-card">
+              <div className="glass-strong rounded-3xl overflow-hidden interactive-card glow-pink">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   <div className="relative h-64 lg:h-auto">
                     <Image
@@ -142,11 +142,11 @@ const Blog = () => {
                   <div className="p-8">
                     <div className="flex items-center gap-4 mb-4 text-sm text-gray-400">
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
+                        <FaCalendarAlt className="w-4 h-4" />
                         <span className="font-mono">{new Date(article.date).toLocaleDateString()}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" />
+                        <FaClock className="w-4 h-4" />
                         <span className="font-mono">{article.readTime}</span>
                       </div>
                       <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-mono">
@@ -163,7 +163,7 @@ const Blog = () => {
                           key={tag}
                           className="px-2 py-1 glass rounded-full text-xs font-mono text-blue-400 flex items-center gap-1"
                         >
-                          <Tag className="w-3 h-3" />
+                          <FaTag className="w-3 h-3" />
                           {tag}
                         </span>
                       ))}
@@ -178,7 +178,7 @@ const Blog = () => {
                       whileTap={{ scale: 0.98 }}
                     >
                       Read on {article.platform}
-                      <ArrowRight className="w-4 h-4" />
+                      <FaArrowRight className="w-4 h-4" />
                     </motion.a>
                   </div>
                 </div>
@@ -195,7 +195,7 @@ const Blog = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                className="glass-strong rounded-3xl overflow-hidden interactive-card"
+                className="glass-strong rounded-3xl overflow-hidden interactive-card glow-blue"
               >
                 <div className="relative h-48">
                   <Image src={article.image || "/placeholder.svg"} alt={article.title} fill className="object-cover" />
@@ -216,11 +216,11 @@ const Blog = () => {
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-3 text-xs text-gray-400">
                     <div className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3" />
+                      <FaCalendarAlt className="w-3 h-3" />
                       <span className="font-mono">{new Date(article.date).toLocaleDateString()}</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
+                      <FaClock className="w-3 h-3" />
                       <span className="font-mono">{article.readTime}</span>
                     </div>
                   </div>
@@ -248,7 +248,7 @@ const Blog = () => {
                     whileHover={{ x: 5 }}
                   >
                     Read on {article.platform}
-                    <ArrowRight className="w-4 h-4" />
+                    <FaArrowRight className="w-4 h-4" />
                   </motion.a>
                 </div>
               </motion.div>
@@ -267,7 +267,7 @@ const Blog = () => {
             whileTap={{ scale: 0.98 }}
           >
             View All Articles
-            <ArrowRight className="w-5 h-5" />
+            <FaArrowRight className="w-5 h-5" />
           </motion.button>
         </motion.div>
       </div>

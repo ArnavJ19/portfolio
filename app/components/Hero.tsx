@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ChevronDown, Play, Download, Code2, Brain, Database } from "lucide-react"
+import { FaChevronDown, FaPlay, FaDownload, FaCode, FaBrain, FaDatabase } from "react-icons/fa"
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0)
@@ -193,7 +193,7 @@ const Hero = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Play className="w-4 h-4 lg:w-5 lg:h-5" />
+            <FaPlay className="w-4 h-4 lg:w-5 lg:h-5" />
             <span className="text-sm lg:text-base">Explore My Work</span>
           </motion.button>
 
@@ -205,7 +205,7 @@ const Hero = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Download className="w-4 h-4 lg:w-5 lg:h-5" />
+            <FaDownload className="w-4 h-4 lg:w-5 lg:h-5" />
             <span className="text-sm lg:text-base">Download Resume</span>
           </motion.a>
         </motion.div>
@@ -217,9 +217,9 @@ const Hero = () => {
           className="grid grid-cols-3 gap-4 lg:gap-8 max-w-xl lg:max-w-2xl mx-auto mb-12 lg:mb-16"
         >
           {[
-            { icon: Code2, value: "10+", label: "ML Projects", color: "text-blue-500" },
-            { icon: Database, value: "50+", label: "Datasets Analyzed", color: "text-yellow-500" },
-            { icon: Brain, value: "3+", label: "Years Experience", color: "text-purple-500" },
+            { icon: FaCode, value: "10+", label: "ML Projects", color: "text-blue-500" },
+            { icon: FaDatabase, value: "50+", label: "Datasets Analyzed", color: "text-yellow-500" },
+            { icon: FaBrain, value: "3+", label: "Years Experience", color: "text-purple-500" },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -252,7 +252,7 @@ const Hero = () => {
             <span className="font-mono text-xs sm:text-sm text-gray-400 group-hover:text-white transition-colors">
               Scroll to explore
             </span>
-            <ChevronDown className="w-5 h-5 lg:w-6 lg:h-6 text-blue-500" />
+            <FaChevronDown className="w-5 h-5 lg:w-6 lg:h-6 text-blue-500" />
           </motion.div>
         </motion.button>
       </div>

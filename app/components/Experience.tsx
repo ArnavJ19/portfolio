@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { MapPin, Calendar, TrendingUp, BarChart3 } from "lucide-react"
+import { FaMapMarkerAlt, FaCalendarAlt, FaChartLine, FaChartBar } from "react-icons/fa"
 
 const Experience = () => {
   const ref = useRef(null)
@@ -17,15 +17,15 @@ const Experience = () => {
       type: "Contract",
       description: [
         "Developed and implemented predictive models using statistical and machine learning techniques including gradient boosting algorithms, hypothesis testing, and DBSCAN, aimed at uncovering critical business trends and enhancing strategic planning.",
-        
+
         "Designed and deployed interactive real-time dashboards using Power BI, resulting in a 10% improvement in manufacturing operational efficiency through enhanced visibility and timely decision-making",
-        
+
         "Conducted comprehensive exploratory data analysis and advanced statistical modeling using R and SQL, effectively translating complex analytical findings into clear, actionable business insights, significantly contributing to data-driven strategic decisions across various departments",
       ],
       technologies: ["Power BI", "Tableau", "R", "Python", "SQL", "Azure"],
       achievements: ["10% efficiency increase", "50% reduction in manual reporting", "Executive-level presentations"],
       color: "from-blue-500 to-purple-600",
-      icon: BarChart3,
+      icon: FaChartBar,
     },
     {
       title: "Trade Analyst & Trader",
@@ -37,13 +37,13 @@ const Experience = () => {
         "Engineered and executed sophisticated option trading strategies leveraging predictive analytics, optimization techniques, and advanced statistical models, consistently achieving ROI of 30% and maintaining an industry-leading Sharpe ratio.",
 
         "Developed and implemented a robust Python-based risk management framework, which significantly reduced downside exposure by 35%, thereby enhancing overall portfolio stability and risk-adjusted returns.",
-        
+
         "Conducted in-depth quantitative analyses and developed accurate forecasting models, effectively synthesizing complex data to deliver actionable insights and strategic recommendations, directly contributing to a 21% improvement in firm profitability.",
       ],
       technologies: ["TradingView", "TradeStation", "Excel", "Python", "SQL", "PineScript"],
       achievements: ["30% ROI achieved", "21% profitability improvement", "Above-benchmark Sharpe ratio"],
       color: "from-green-500 to-teal-600",
-      icon: TrendingUp,
+      icon: FaChartLine,
     },
   ]
 
@@ -82,7 +82,7 @@ const Experience = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="mb-12 last:mb-0"
             >
-              <div className="glass-strong rounded-3xl p-6 sm:p-8 interactive-card relative overflow-hidden">
+              <div className="glass-strong rounded-3xl p-6 sm:p-8 interactive-card glow-green relative overflow-hidden">
                 <div className="absolute top-4 sm:top-6 right-4 sm:right-6">
                   <div
                     className={`px-3 py-1 rounded-full text-xs font-mono ${
@@ -109,11 +109,11 @@ const Experience = () => {
                       <p className="text-lg sm:text-xl text-blue-400 mb-3">{exp.company}</p>
                       <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-gray-400">
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 flex-shrink-0" />
+                          <FaMapMarkerAlt className="w-4 h-4 flex-shrink-0" />
                           <span className="font-mono text-sm">{exp.location}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 flex-shrink-0" />
+                          <FaCalendarAlt className="w-4 h-4 flex-shrink-0" />
                           <span className="font-mono text-sm">{exp.period}</span>
                         </div>
                       </div>

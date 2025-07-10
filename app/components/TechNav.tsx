@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { FaBars, FaTimes } from "react-icons/fa"
 
 const TechNav = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,7 +11,8 @@ const TechNav = () => {
 
   const navItems = [
     { id: "hero", label: "HOME" },
-    { id: "about", label: "ABOUT" },
+    { id: "about-me", label: "ABOUT ME" },
+    { id: "about", label: "EXPERTISE" },
     { id: "skills", label: "SKILLS" },
     { id: "projects", label: "PROJECTS" },
     { id: "experience", label: "EXPERIENCE" },
@@ -20,53 +21,6 @@ const TechNav = () => {
     { id: "blog", label: "BLOG" },
     { id: "contact", label: "CONTACT" },
   ]
-
-  const scrollToSection = useCallback(
-    (sectionId: string) => {
-      try {
-        // Close mobile menu first
-        setIsOpen(false)
-
-        // Wait a bit for menu to close, then scroll
-        setTimeout(
-          () => {
-            const element = document.getElementById(sectionId)
-
-            if (!element) {
-              console.warn(`Element with id "${sectionId}" not found`)
-              return
-            }
-
-            // Calculate the offset position
-            const headerHeight = 80
-            const elementRect = element.getBoundingClientRect()
-            const absoluteElementTop = elementRect.top + window.pageYOffset
-            const targetPosition = absoluteElementTop - headerHeight
-
-            // Use both methods for better compatibility
-            try {
-              // Method 1: Modern smooth scroll
-              window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth",
-              })
-            } catch (error) {
-              // Method 2: Fallback for older browsers
-              console.warn("Smooth scroll not supported, using fallback")
-              window.scrollTo(0, targetPosition)
-            }
-
-            // Update active section immediately for better UX
-            setActiveSection(sectionId)
-          },
-          isOpen ? 300 : 0,
-        )
-      } catch (error) {
-        console.error("Error scrolling to section:", error)
-      }
-    },
-    [isOpen],
-  )
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,6 +92,53 @@ const TechNav = () => {
 
     return () => window.removeEventListener("scroll", throttledScroll)
   }, [activeSection, navItems])
+
+  const scrollToSection = useCallback(
+    (sectionId: string) => {
+      try {
+        // Close mobile menu first
+        setIsOpen(false)
+
+        // Wait a bit for menu to close, then scroll
+        setTimeout(
+          () => {
+            const element = document.getElementById(sectionId)
+
+            if (!element) {
+              console.warn(`Element with id "${sectionId}" not found`)
+              return
+            }
+
+            // Calculate the offset position
+            const headerHeight = 80
+            const elementRect = element.getBoundingClientRect()
+            const absoluteElementTop = elementRect.top + window.pageYOffset
+            const targetPosition = absoluteElementTop - headerHeight
+
+            // Use both methods for better compatibility
+            try {
+              // Method 1: Modern smooth scroll
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth",
+              })
+            } catch (error) {
+              // Method 2: Fallback for older browsers
+              console.warn("Smooth scroll not supported, using fallback")
+              window.scrollTo(0, targetPosition)
+            }
+
+            // Update active section immediately for better UX
+            setActiveSection(sectionId)
+          },
+          isOpen ? 300 : 0,
+        )
+      } catch (error) {
+        console.error("Error scrolling to section:", error)
+      }
+    },
+    [isOpen],
+  )
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -231,7 +232,7 @@ const TechNav = () => {
               aria-expanded={isOpen}
             >
               <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {isOpen ? <FaTimes className="w-5 h-5" /> : <FaBars className="w-5 h-5" />}
               </motion.div>
             </button>
           </div>

@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { ExternalLink, Github } from "lucide-react"
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa"
 import Image from "next/image"
 
 const Projects = () => {
@@ -10,8 +10,7 @@ const Projects = () => {
   const isInView = useInView(ref, { once: true, threshold: 0.1 })
 
   const projects = [
-    
-      {
+    {
       id: "01",
       title: "GammaX: OPTION PRICING TOOL",
       description: "An advanced Option Pricing and Analytics tool built using Python and StreamLit",
@@ -54,32 +53,8 @@ const Projects = () => {
     },
   ]
 
-  const handleLinkClick = (url: string, type: "github" | "live") => {
-    try {
-      // Add a small delay to ensure the click is registered
-      setTimeout(() => {
-        // Create a temporary anchor element for better compatibility
-        const link = document.createElement("a")
-        link.href = url
-        link.target = "_blank"
-        link.rel = "noopener noreferrer"
-
-        // Append to body, click, and remove
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-      }, 100)
-    } catch (error) {
-      console.error(`Error opening ${type} link:`, error)
-      // Fallback: try window.open
-      try {
-        window.open(url, "_blank", "noopener,noreferrer")
-      } catch (fallbackError) {
-        console.error("Fallback link opening failed:", fallbackError)
-        // Last resort: navigate in same window
-        window.location.href = url
-      }
-    }
+  const handleLinkClick = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer")
   }
 
   return (
@@ -110,9 +85,10 @@ const Projects = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`tech-border rounded-xl overflow-hidden hover:tech-glow transition-all duration-300 group ${
+              className={`tech-border rounded-xl overflow-hidden hover:tech-glow transition-all duration-300 project-card interactive-card glow-blue ${
                 project.featured ? "lg:col-span-2" : ""
               }`}
+              style={{ pointerEvents: "auto" }}
             >
               <div className={`flex flex-col ${project.featured ? "lg:flex-row" : ""}`}>
                 <div className={`relative overflow-hidden ${project.featured ? "lg:w-1/2" : ""}`}>
@@ -121,27 +97,27 @@ const Projects = () => {
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       priority={index < 2}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
 
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute top-4 left-4 z-10">
                       <span className="font-mono text-primary text-sm bg-background/80 px-2 py-1 rounded">
                         {project.id}
                       </span>
                     </div>
 
                     {project.featured && (
-                      <div className="absolute top-4 right-4">
+                      <div className="absolute top-4 right-4 z-10">
                         <span className="font-mono text-background text-xs bg-primary px-2 py-1 rounded">FEATURED</span>
                       </div>
                     )}
                   </div>
                 </div>
 
-                <div className={`p-6 ${project.featured ? "lg:w-1/2" : ""}`}>
+                <div className={`p-6 relative z-20 ${project.featured ? "lg:w-1/2" : ""}`}>
                   <h3 className="font-mono text-primary text-sm mb-2">{project.title}</h3>
                   <p className="text-secondary mb-4 leading-relaxed">{project.description}</p>
 
@@ -153,31 +129,29 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 relative z-30">
                     {/* GitHub Link */}
-                    <motion.button
-                      onClick={() => handleLinkClick(project.github, "github")}
-                      className="flex items-center gap-2 text-secondary hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-md px-2 py-1"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      aria-label={`View ${project.title} source code on GitHub`}
+                    <button
+                      onClick={() => handleLinkClick(project.github)}
+                      className="inline-flex items-center gap-2 text-white bg-gray-800 hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-4 py-2 border border-gray-600 hover:border-gray-500 cursor-pointer"
+                      style={{ pointerEvents: "auto", zIndex: 50 }}
+                      type="button"
                     >
-                      <Github className="w-4 h-4" />
-                      <span className="font-mono text-sm">CODE</span>
-                    </motion.button>
+                      <FaGithub className="w-4 h-4" />
+                      <span className="font-mono text-sm font-medium">CODE</span>
+                    </button>
 
                     {/* Live Demo Link */}
                     {project.live && (
-                      <motion.button
-                        onClick={() => handleLinkClick(project.live!, "live")}
-                        className="flex items-center gap-2 text-secondary hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-md px-2 py-1"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        aria-label={`View ${project.title} live demo`}
+                      <button
+                        onClick={() => handleLinkClick(project.live)}
+                        className="inline-flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-4 py-2 border border-blue-500 hover:border-blue-400 cursor-pointer"
+                        style={{ pointerEvents: "auto", zIndex: 50 }}
+                        type="button"
                       >
-                        <ExternalLink className="w-4 h-4" />
-                        <span className="font-mono text-sm">LIVE</span>
-                      </motion.button>
+                        <FaExternalLinkAlt className="w-4 h-4" />
+                        <span className="font-mono text-sm font-medium">LIVE</span>
+                      </button>
                     )}
                   </div>
                 </div>
@@ -193,22 +167,21 @@ const Projects = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-16 text-center"
         >
-          <div className="glass-strong rounded-3xl p-8 max-w-4xl mx-auto">
+          <div className="glass-strong rounded-3xl p-8 max-w-4xl mx-auto interactive-card glow-purple">
             <h3 className="text-2xl font-bold text-white mb-6">More Projects Coming Soon</h3>
             <p className="text-gray-300 mb-6">
               Currently working on several exciting projects involving deep learning, computer vision, and advanced
               analytics.
             </p>
-            <motion.button
-              onClick={() => handleLinkClick("https://github.com/ArnavJ19", "github")}
-              className="btn-primary inline-flex items-center gap-3"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              aria-label="View all projects on GitHub"
+            <button
+              onClick={() => handleLinkClick("https://github.com/ArnavJ19")}
+              className="btn-primary inline-flex items-center gap-3 cursor-pointer"
+              style={{ pointerEvents: "auto" }}
+              type="button"
             >
-              <Github className="w-5 h-5" />
+              <FaGithub className="w-5 h-5" />
               <span className="font-mono">VIEW_ALL_PROJECTS</span>
-            </motion.button>
+            </button>
           </div>
         </motion.div>
       </div>
