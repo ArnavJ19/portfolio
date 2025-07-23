@@ -10,7 +10,8 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      icon: "💻",
+      icon: "",
+      glowClass: "glow-blue",
       skills: [
         { name: "Python", level: 95, color: "bg-blue-500" },
         { name: "R", level: 88, color: "bg-green-500" },
@@ -21,7 +22,8 @@ const Skills = () => {
     },
     {
       title: "ML/AI Frameworks",
-      icon: "🤖",
+      icon: "",
+      glowClass: "glow-purple",
       skills: [
         { name: "TensorFlow", level: 92, color: "bg-orange-500" },
         { name: "PyTorch", level: 88, color: "bg-red-500" },
@@ -32,7 +34,8 @@ const Skills = () => {
     },
     {
       title: "Data & Cloud",
-      icon: "☁️",
+      icon: "",
+      glowClass: "glow-green",
       skills: [
         { name: "Apache Spark", level: 85, color: "bg-orange-500" },
         { name: "AWS", level: 80, color: "bg-yellow-500" },
@@ -43,7 +46,8 @@ const Skills = () => {
     },
     {
       title: "Analytics & Visualization",
-      icon: "📊",
+      icon: "",
+      glowClass: "glow-yellow",
       skills: [
         { name: "Tableau", level: 91, color: "bg-purple-500" },
         { name: "Power BI", level: 95, color: "bg-yellow-500" },
@@ -87,7 +91,7 @@ const Skills = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              className="glass-strong rounded-3xl p-8"
+              className={`glass-strong rounded-3xl p-8 interactive-card skill-card ${category.glowClass}`}
             >
               <div className="flex items-center gap-4 mb-8">
                 <div className="text-4xl">{category.icon}</div>

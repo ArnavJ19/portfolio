@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Award, ExternalLink, Calendar, CheckCircle } from "lucide-react"
+import { FaAward, FaExternalLinkAlt, FaCalendarAlt, FaCheckCircle } from "react-icons/fa"
 
 const Certifications = () => {
   const ref = useRef(null)
@@ -48,6 +48,84 @@ const Certifications = () => {
       color: "from-green-500 to-teal-600",
       verified: true,
     },
+    {
+      name: "Generative AI: Prompt Engineering Basics",
+      issuer: "IBM",
+      platform: "Coursera",
+      date: "January 2025",
+      credentialId: "LAU3GUT5WL83",
+      description:
+        "Prompt engineering techniques and approaches, including interview pattern, chain-of-thought, tree-of-thought, to improve prompt outcomes.",
+      skills: ["Prompt Engineering", "Large Language Model", "Chain of Thought"],
+      viewUrl: "https://www.coursera.org/account/accomplishments/verify/LAU3GUT5WL83",
+      color: "from-blue-500 to-indigo-600",
+      verified: true,
+    },
+    {
+      name: "Introduction to Artificial Intelligence (AI)",
+      issuer: "IBM",
+      platform: "Coursera",
+      date: "January 2025",
+      credentialId: "M1WXUIW1IS5L",
+      description:
+        "Analyze the role of generative AI in transforming business operations, identifying opportunities for innovation and process improvement.",
+      skills: ["Generative AI", "LLMs", "Prompt Engineering", "AI Ethics", "Business Applications"],
+      viewUrl: "https://www.coursera.org/account/accomplishments/verify/M1WXUIW1IS5L",
+      color: "from-purple-500 to-pink-600",
+      verified: true,
+    },
+    {
+      name: "Introduction to Data Analytics",
+      issuer: "IBM",
+      platform: "Coursera",
+      date: "October 2022",
+      credentialId: "Z9B7JR9RUVTW",
+      description:
+        "Comprehensive Data Analysis Course",
+      skills: ["Python", "Data Analytics", "Data Visualization", "Storytelling"],
+      viewUrl: "https://www.coursera.org/account/accomplishments/verify/Z9B7JR9RUVTW",
+      color: "from-green-500 to-teal-600",
+      verified: true,
+    },
+    {
+      name: "Algorithms on Graphs",
+      issuer: "UC San Diego",
+      platform: "Coursera",
+      date: "November 2021",
+      credentialId: "7D54Y7SGG5NF",
+      description:
+        "Course on learning various types of graph-based algorithms, which are widely used in software development and other fields. ",
+      skills: ["Graph Algorithms", "Data Structures", "Software Development", "Programming"],
+      viewUrl: "https://www.coursera.org/account/accomplishments/verify/7D54Y7SGG5NF",
+      color: "from-blue-500 to-indigo-600",
+      verified: true,
+    },
+    {
+      name: "Asymmetric Cryptography and Key Management",
+      issuer: "University of Colorado",
+      platform: "Coursera",
+      date: "Novermber 2021",
+      credentialId: "UYLJJ9YR2B5K",
+      description:
+        "Advanced course using asymmetric cryptography techniques, which used widely in industry to secure data.",
+      skills: ["Cryptography", "Encryption", "Data Privacy", "Data Security"],
+      viewUrl: "https://www.coursera.org/account/accomplishments/verify/UYLJJ9YR2B5K",
+      color: "from-purple-500 to-pink-600",
+      verified: true,
+    },
+    {
+      name: "Software Processes and Agile Practices",
+      issuer: "University of Alberta",
+      platform: "Coursera",
+      date: "November 2021",
+      credentialId: "LXZLEX8VBVE9",
+      description:
+        "A course on learning and implementing software processes and agile development practices in SDLC.",
+      skills: ["Software Devlopment", "Agile Devlopment", "Software Engineering"],
+      viewUrl: "https://www.coursera.org/account/accomplishments/verify/LXZLEX8VBVE9",
+      color: "from-green-500 to-teal-600",
+      verified: true,
+    },
   ]
 
   return (
@@ -86,7 +164,7 @@ const Certifications = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-strong rounded-3xl p-6 interactive-card relative overflow-hidden group"
+              className="glass-strong rounded-3xl p-6 interactive-card glow-blue relative overflow-hidden group"
             >
               {/* Gradient overlay */}
               <div
@@ -98,7 +176,7 @@ const Certifications = () => {
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-start gap-4 flex-1 min-w-0">
                     <div className={`p-3 rounded-2xl bg-gradient-to-br ${cert.color} shadow-lg flex-shrink-0`}>
-                      <Award className="w-6 h-6 text-white" />
+                      <FaAward className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1 min-w-0 pr-4">
                       <h3 className="text-lg font-bold text-white mb-1 leading-tight">{cert.name}</h3>
@@ -111,7 +189,7 @@ const Certifications = () => {
                   {cert.verified && (
                     <div className="flex-shrink-0">
                       <div className="flex items-center gap-1 bg-green-500/20 text-green-400 px-2 py-1 rounded-full border border-green-500/30">
-                        <CheckCircle className="w-3 h-3" />
+                        <FaCheckCircle className="w-3 h-3" />
                         <span className="text-xs font-mono">Verified</span>
                       </div>
                     </div>
@@ -121,7 +199,7 @@ const Certifications = () => {
                 {/* Date and credential */}
                 <div className="flex items-center gap-4 mb-4 text-gray-400 text-sm">
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
+                    <FaCalendarAlt className="w-4 h-4" />
                     <span className="font-mono">{cert.date}</span>
                   </div>
                 </div>
@@ -160,7 +238,7 @@ const Certifications = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <ExternalLink className="w-4 h-4" />
+                  <FaExternalLinkAlt className="w-4 h-4" />
                   View Certificate
                 </motion.a>
               </div>
@@ -175,11 +253,11 @@ const Certifications = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center"
         >
-          <div className="glass-strong rounded-3xl p-8 max-w-4xl mx-auto">
+          <div className="glass-strong rounded-3xl p-8 max-w-4xl mx-auto interactive-card glow-purple">
             <h3 className="text-2xl font-bold text-white mb-6">Professional Validation</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-2">3</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">9</div>
                 <div className="text-gray-400 text-sm font-mono">Certifications</div>
               </div>
               <div className="text-center">
@@ -187,7 +265,7 @@ const Certifications = () => {
                 <div className="text-gray-400 text-sm font-mono">Verified</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-400 mb-2">16</div>
+                <div className="text-3xl font-bold text-purple-400 mb-2">35</div>
                 <div className="text-gray-400 text-sm font-mono">Skills Validated</div>
               </div>
               <div className="text-center">
@@ -201,9 +279,9 @@ const Certifications = () => {
               <h4 className="text-lg font-semibold text-white mb-4">Certification Timeline</h4>
               <div className="flex justify-center">
                 <div className="flex items-center gap-4 text-sm font-mono text-gray-400">
-                  <span>2022</span>
+                  <span>2021</span>
                   <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  <span>Deep Learning</span>
+                  <span>Software Development</span>
                   <div className="w-8 h-px bg-gray-600"></div>
                   <span>2025</span>
                   <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
