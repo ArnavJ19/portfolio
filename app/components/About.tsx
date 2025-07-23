@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { FaBrain, FaDatabase, FaChartLine, FaBullseye, FaDollarSign } from "react-icons/fa"
+import { Brain, Database, Code2, TrendingUp, Target, DollarSign } from "lucide-react"
 
 const About = () => {
   const ref = useRef(null)
@@ -36,30 +36,27 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {[
             {
-              icon: FaBrain,
+              icon: Brain,
               title: "Machine Learning",
-              description:
-                "Building predictive models using supervised and unsupervised learning, feature engineering, and model optimization for real-world applications.",
+              description: "Building predictive models using supervised and unsupervised learning, feature engineering, and model optimization for real-world applications.",
             },
             {
-              icon: FaDatabase,
+              icon: Database,
               title: "Data Engineering",
-              description:
-                "Designing scalable data pipelines, orchestrating ETL workflows, and architecting infrastructure for efficient data processing and analytics.",
+              description: "Designing scalable data pipelines, orchestrating ETL workflows, and architecting infrastructure for efficient data processing and analytics.",
             },
 
             {
-              icon: FaDollarSign,
+              icon: DollarSign,
               title: "Quant Trader",
               description:
                 "Algorithmic trading strategies powered by quantitative models, market microstructure analysis, and real-time risk management.",
             },
 
             {
-              icon: FaChartLine,
+              icon: TrendingUp,
               title: "Analytics",
-              description:
-                "Extracting actionable insights from data through statistical analysis, data visualization, and business intelligence to drive informed decision-making.",
+              description: "Extracting actionable insights from data through statistical analysis, data visualization, and business intelligence to drive informed decision-making.",
             },
           ].map((item, index) => (
             <motion.div
@@ -67,7 +64,7 @@ const About = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-strong rounded-3xl p-8 interactive-card glow-purple relative overflow-hidden group"
+              className="glass-strong rounded-3xl p-8 interactive-card relative overflow-hidden group"
             >
               <div className="relative z-10">
                 <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg mb-6 w-fit">
@@ -86,7 +83,7 @@ const About = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="glass-strong rounded-3xl p-12 relative overflow-hidden interactive-card philosophy-glow">
+          <div className="glass-strong rounded-3xl p-12 relative overflow-hidden">
             <div className="flex items-center gap-3 mb-8">
               <div className="flex gap-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -108,7 +105,7 @@ const About = () => {
 
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <FaBullseye className="w-5 h-5 text-blue-400" />
+                <Target className="w-5 h-5 text-blue-400" />
                 <span className="text-gray-400 font-mono text-sm">Ready to solve complex challenges</span>
               </div>
               <div className="text-right">

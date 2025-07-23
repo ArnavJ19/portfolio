@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { FaAward, FaExternalLinkAlt, FaCalendarAlt, FaCheckCircle } from "react-icons/fa"
+import { Award, ExternalLink, Calendar, CheckCircle } from "lucide-react"
 
 const Certifications = () => {
   const ref = useRef(null)
@@ -86,7 +86,7 @@ const Certifications = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-strong rounded-3xl p-6 interactive-card glow-blue relative overflow-hidden group"
+              className="glass-strong rounded-3xl p-6 interactive-card relative overflow-hidden group"
             >
               {/* Gradient overlay */}
               <div
@@ -98,7 +98,7 @@ const Certifications = () => {
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-start gap-4 flex-1 min-w-0">
                     <div className={`p-3 rounded-2xl bg-gradient-to-br ${cert.color} shadow-lg flex-shrink-0`}>
-                      <FaAward className="w-6 h-6 text-white" />
+                      <Award className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1 min-w-0 pr-4">
                       <h3 className="text-lg font-bold text-white mb-1 leading-tight">{cert.name}</h3>
@@ -111,7 +111,7 @@ const Certifications = () => {
                   {cert.verified && (
                     <div className="flex-shrink-0">
                       <div className="flex items-center gap-1 bg-green-500/20 text-green-400 px-2 py-1 rounded-full border border-green-500/30">
-                        <FaCheckCircle className="w-3 h-3" />
+                        <CheckCircle className="w-3 h-3" />
                         <span className="text-xs font-mono">Verified</span>
                       </div>
                     </div>
@@ -121,7 +121,7 @@ const Certifications = () => {
                 {/* Date and credential */}
                 <div className="flex items-center gap-4 mb-4 text-gray-400 text-sm">
                   <div className="flex items-center gap-2">
-                    <FaCalendarAlt className="w-4 h-4" />
+                    <Calendar className="w-4 h-4" />
                     <span className="font-mono">{cert.date}</span>
                   </div>
                 </div>
@@ -160,7 +160,7 @@ const Certifications = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <FaExternalLinkAlt className="w-4 h-4" />
+                  <ExternalLink className="w-4 h-4" />
                   View Certificate
                 </motion.a>
               </div>
@@ -175,7 +175,7 @@ const Certifications = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center"
         >
-          <div className="glass-strong rounded-3xl p-8 max-w-4xl mx-auto interactive-card glow-purple">
+          <div className="glass-strong rounded-3xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-6">Professional Validation</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">

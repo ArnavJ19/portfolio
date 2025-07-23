@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { FaEnvelope, FaGithub, FaLinkedin, FaDownload } from "react-icons/fa"
+import { Mail, Github, Linkedin, Download } from "lucide-react"
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -12,19 +12,19 @@ const Contact = () => {
 
   const contactLinks = [
     {
-      icon: FaEnvelope,
+      icon: Mail,
       label: "EMAIL",
       value: "arnavj19@outlook.com",
       href: "mailto:arnavj19@outlook.com",
     },
     {
-      icon: FaLinkedin,
+      icon: Linkedin,
       label: "LINKEDIN",
       value: "arnavj19",
       href: "https://www.linkedin.com/in/arnavj19",
     },
     {
-      icon: FaGithub,
+      icon: Github,
       label: "GITHUB",
       value: "arnavj19",
       href: "https://github.com/arnavj19",
@@ -76,7 +76,7 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="flex flex-col items-center gap-4 p-8 glass-strong rounded-2xl hover:bg-white/10 transition-all duration-300 group interactive-card glow-blue"
+                  className="flex flex-col items-center gap-4 p-8 glass-strong rounded-2xl hover:bg-white/10 transition-all duration-300 group"
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
                   <div className="p-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl">
@@ -101,7 +101,7 @@ const Contact = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <FaDownload className="w-5 h-5" />
+              <Download className="w-5 h-5" />
               <span className="font-mono">VIEW_RESUME.pdf</span>
             </motion.a>
           </motion.div>

@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { FaGraduationCap, FaMapMarkerAlt, FaCalendarAlt, FaAward } from "react-icons/fa"
+import { GraduationCap, MapPin, Calendar, Award } from "lucide-react"
 
 const Education = () => {
   const ref = useRef(null)
@@ -91,7 +91,7 @@ const Education = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="mb-12 last:mb-0"
             >
-              <div className="glass-strong rounded-3xl p-8 interactive-card glow-purple relative overflow-hidden">
+              <div className="glass-strong rounded-3xl p-8 interactive-card relative overflow-hidden">
                 <div className="absolute top-6 right-6">
                   <div
                     className={`px-3 py-1 rounded-full text-xs font-mono ${
@@ -111,22 +111,22 @@ const Education = () => {
                 <div className="relative z-10">
                   <div className="flex items-start gap-6 mb-8">
                     <div className={`p-4 rounded-2xl bg-gradient-to-br ${edu.color} shadow-lg`}>
-                      <FaGraduationCap className="w-8 h-8 text-white" />
+                      <GraduationCap className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-white mb-2">{edu.degree}</h3>
                       <p className="text-xl text-blue-400 mb-3">{edu.institution}</p>
                       <div className="flex flex-wrap gap-4 text-gray-400">
                         <div className="flex items-center gap-2">
-                          <FaMapMarkerAlt className="w-4 h-4" />
+                          <MapPin className="w-4 h-4" />
                           <span className="font-mono text-sm">{edu.location}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <FaCalendarAlt className="w-4 h-4" />
+                          <Calendar className="w-4 h-4" />
                           <span className="font-mono text-sm">{edu.period}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <FaAward className="w-4 h-4" />
+                          <Award className="w-4 h-4" />
                           <span className="font-mono text-sm">GPA: {edu.gpa}</span>
                         </div>
                       </div>

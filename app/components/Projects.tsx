@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa"
+import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
 
 const Projects = () => {
@@ -10,52 +10,68 @@ const Projects = () => {
   const isInView = useInView(ref, { once: true, threshold: 0.1 })
 
   const projects = [
+
+
     {
       id: "01",
-      title: "GammaX: OPTION PRICING TOOL",
+      title: "Grekko: AI Data Analytics Tool",
+      description: "Intelligent data analytics platform that uses Retrieval Augmented Generation with Qwen 2.5-7B LLM to autonomously analyze uploaded datasets performing schema detection, summary statistics, visualization generation, and anomaly detection with an integrated chat interface that allows users to ask natural language questions for deeper insights",
+      tech: ["Data Visualization", "Data Analytics", "LLM", "Data Insights"],
+      image: "https://miro.medium.com/v2/resize:fit:4800/format:webp/1*ufzEPkymZYOdg6Nt8_-mfQ.png",
+      github: "https://github.com/ArnavJ19/LLM-Data-Analytics-Tool",
+      featured: true,
+    },
+
+    {
+      id: "02",
+      title: "GammaX: Advanced Option Pricing Tool",
       description: "An advanced Option Pricing and Analytics tool built using Python and StreamLit",
       tech: ["Python", "Streamlit", "Finance", "Options"],
       image: "/images/gammax-delta-surface.png",
-      github: "https://github.com/ArnavJ19/GammaX",
+      github: "https://github.com/ArnavJ19/Depression-Prediction-Using-Health-Data",
       live: "https://gammax-optionpricing.streamlit.app",
-      featured: false,
+      featured: true,
     },
+    
     {
-      id: "02",
-      title: "AI TRADING SYSTEM",
+      id: "03",
+      title: "Reinforcement Learning Based Trading Agent",
       description:
         "Reinforcement learning agent for automated trading with 15% performance improvement over traditional strategies.",
       tech: ["Python", "TensorFlow", "RL", "Finance"],
       image: "/images/ai-trading-dashboard.jpg",
       github: "https://github.com/ArnavJ19/RL_Agent_Trading",
-      live: null,
-      featured: false,
-    },
-    {
-      id: "03",
-      title: "PORTFOLIO OPTIMIZER",
-      description: "ML-powered portfolio optimization using clustering algorithms for risk-adjusted returns.",
-      tech: ["Python", "Scikit-learn", "Finance", "ML"],
-      image: "/images/portfolio-allocation.jpg",
-      github: "https://github.com/ArnavJ19/PortfolioML",
-      live: null,
       featured: false,
     },
     {
       id: "04",
-      title: "HEALTH PREDICTOR",
+      title: "Portfolio Optimization using Machine Learning",
+      description: "ML-powered portfolio optimization using clustering algorithms for risk-adjusted returns.",
+      tech: ["Python", "Scikit-learn", "Finance", "ML"],
+      image: "/images/portfolio-allocation.jpg",
+      github: "https://github.com/ArnavJ19/PortfolioML",
+      featured: false,
+    },
+    {
+      id: "05",
+      title: "Depressive Health Predictor",
       description: "Depression prediction model using BRFSS dataset with 75% accuracy across multiple classes.",
       tech: ["R", "Python", "Healthcare", "ML"],
       image: "/images/ai-health-brain.png",
       github: "https://github.com/ArnavJ19/Depression-Prediction-Using-Health-Data",
-      live: null,
+      featured: false,
+    },
+
+    {
+      id: "06",
+      title: "Time Series Analysis using Amazon Chronos",
+      description: "A stark comparison between the performance of transformer-based and statistics based Time-Series Models",
+      tech: ["Time Series Regression", "Transformers", "Statistics", "Data Analysis"],
+      image: "https://raw.githubusercontent.com/amazon-science/chronos-forecasting/main/figures/main-figure.png",
+      github: "https://github.com/ArnavJ19/Chronos",
       featured: false,
     },
   ]
-
-  const handleLinkClick = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer")
-  }
 
   return (
     <section id="projects" className="py-20 relative">
@@ -85,10 +101,9 @@ const Projects = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`tech-border rounded-xl overflow-hidden hover:tech-glow transition-all duration-300 project-card interactive-card glow-blue ${
+              className={`tech-border rounded-xl overflow-hidden hover:tech-glow transition-all duration-300 group ${
                 project.featured ? "lg:col-span-2" : ""
               }`}
-              style={{ pointerEvents: "auto" }}
             >
               <div className={`flex flex-col ${project.featured ? "lg:flex-row" : ""}`}>
                 <div className={`relative overflow-hidden ${project.featured ? "lg:w-1/2" : ""}`}>
@@ -97,27 +112,27 @@ const Projects = () => {
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       priority={index < 2}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
 
-                    <div className="absolute top-4 left-4 z-10">
+                    <div className="absolute top-4 left-4">
                       <span className="font-mono text-primary text-sm bg-background/80 px-2 py-1 rounded">
                         {project.id}
                       </span>
                     </div>
 
                     {project.featured && (
-                      <div className="absolute top-4 right-4 z-10">
+                      <div className="absolute top-4 right-4">
                         <span className="font-mono text-background text-xs bg-primary px-2 py-1 rounded">FEATURED</span>
                       </div>
                     )}
                   </div>
                 </div>
 
-                <div className={`p-6 relative z-20 ${project.featured ? "lg:w-1/2" : ""}`}>
+                <div className={`p-6 ${project.featured ? "lg:w-1/2" : ""}`}>
                   <h3 className="font-mono text-primary text-sm mb-2">{project.title}</h3>
                   <p className="text-secondary mb-4 leading-relaxed">{project.description}</p>
 
@@ -129,29 +144,26 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <div className="flex gap-4 relative z-30">
-                    {/* GitHub Link */}
-                    <button
-                      onClick={() => handleLinkClick(project.github)}
-                      className="inline-flex items-center gap-2 text-white bg-gray-800 hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-4 py-2 border border-gray-600 hover:border-gray-500 cursor-pointer"
-                      style={{ pointerEvents: "auto", zIndex: 50 }}
-                      type="button"
+                  <div className="flex gap-4">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
                     >
-                      <FaGithub className="w-4 h-4" />
-                      <span className="font-mono text-sm font-medium">CODE</span>
-                    </button>
-
-                    {/* Live Demo Link */}
+                      <Github className="w-4 h-4" />
+                      <span className="font-mono text-sm">CODE</span>
+                    </a>
                     {project.live && (
-                      <button
-                        onClick={() => handleLinkClick(project.live)}
-                        className="inline-flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-4 py-2 border border-blue-500 hover:border-blue-400 cursor-pointer"
-                        style={{ pointerEvents: "auto", zIndex: 50 }}
-                        type="button"
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
                       >
-                        <FaExternalLinkAlt className="w-4 h-4" />
-                        <span className="font-mono text-sm font-medium">LIVE</span>
-                      </button>
+                        <ExternalLink className="w-4 h-4" />
+                        <span className="font-mono text-sm">LIVE</span>
+                      </a>
                     )}
                   </div>
                 </div>
@@ -159,31 +171,6 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Additional Projects Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <div className="glass-strong rounded-3xl p-8 max-w-4xl mx-auto interactive-card glow-purple">
-            <h3 className="text-2xl font-bold text-white mb-6">More Projects Coming Soon</h3>
-            <p className="text-gray-300 mb-6">
-              Currently working on several exciting projects involving deep learning, computer vision, and advanced
-              analytics.
-            </p>
-            <button
-              onClick={() => handleLinkClick("https://github.com/ArnavJ19")}
-              className="btn-primary inline-flex items-center gap-3 cursor-pointer"
-              style={{ pointerEvents: "auto" }}
-              type="button"
-            >
-              <FaGithub className="w-5 h-5" />
-              <span className="font-mono">VIEW_ALL_PROJECTS</span>
-            </button>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

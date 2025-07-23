@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { FaCalendarAlt, FaClock, FaArrowRight, FaTag } from "react-icons/fa"
+import { Calendar, Clock, ArrowRight, Tag } from "lucide-react"
 import Image from "next/image"
 
 const Blog = () => {
@@ -45,6 +45,22 @@ const Blog = () => {
     },
     {
       id: 3,
+      title: "Scalable vs. Statistical: A Time-Series Forecasting Comparison Between Amazon Chronos and AutoARIMA",
+      excerpt: "Implementing LSTM and Transformer models for accurate prediction of financial and business metrics.",
+      content:
+        "Time-series forecasting is a cornerstone of predictive analytics in sectors such as energy, finance, and supply chain management. In this study, we evaluate the performance of Amazon’s Chronos, a scalable neural network-based forecasting model, and AutoARIMA, a classical statistical method, on a real-world energy dataset.",
+      image:
+        "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      date: "2025-07-21",
+      readTime: "10 min read",
+      category: "Time Series Analysis",
+      tags: ["Time Series", "Transformers", "Forecasting", "Statistics"],
+      featured: false,
+      platform: "Medium",
+      url: "https://medium.com/@arnavjain1615/scalable-vs-statistical-a-time-series-forecasting-comparison-between-amazon-chronos-and-autoarima-df479e17a443",
+    },
+    {
+      id: 4,
       title: "Building Scalable Data Pipelines with Apache Spark",
       excerpt:
         "A comprehensive guide to designing and implementing robust data processing pipelines for big data applications.",
@@ -60,22 +76,7 @@ const Blog = () => {
       platform: "Medium",
       url: "#",
     },
-    {
-      id: 4,
-      title: "Deep Learning for Time Series Forecasting",
-      excerpt: "Implementing LSTM and Transformer models for accurate prediction of financial and business metrics.",
-      content:
-        "Practical implementation of neural networks for time series analysis, including data preprocessing, model architecture, and evaluation metrics.",
-      image:
-        "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      date: "2024-01-05",
-      readTime: "15 min read",
-      category: "Deep Learning",
-      tags: ["LSTM", "Transformers", "Forecasting", "TensorFlow"],
-      featured: false,
-      platform: "Medium",
-      url: "#",
-    },
+    
   ]
 
   return (
@@ -113,7 +114,7 @@ const Blog = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-16"
             >
-              <div className="glass-strong rounded-3xl overflow-hidden interactive-card glow-pink">
+              <div className="glass-strong rounded-3xl overflow-hidden interactive-card">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   <div className="relative h-64 lg:h-auto">
                     <Image
@@ -142,11 +143,11 @@ const Blog = () => {
                   <div className="p-8">
                     <div className="flex items-center gap-4 mb-4 text-sm text-gray-400">
                       <div className="flex items-center gap-2">
-                        <FaCalendarAlt className="w-4 h-4" />
+                        <Calendar className="w-4 h-4" />
                         <span className="font-mono">{new Date(article.date).toLocaleDateString()}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <FaClock className="w-4 h-4" />
+                        <Clock className="w-4 h-4" />
                         <span className="font-mono">{article.readTime}</span>
                       </div>
                       <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-mono">
@@ -163,7 +164,7 @@ const Blog = () => {
                           key={tag}
                           className="px-2 py-1 glass rounded-full text-xs font-mono text-blue-400 flex items-center gap-1"
                         >
-                          <FaTag className="w-3 h-3" />
+                          <Tag className="w-3 h-3" />
                           {tag}
                         </span>
                       ))}
@@ -178,7 +179,7 @@ const Blog = () => {
                       whileTap={{ scale: 0.98 }}
                     >
                       Read on {article.platform}
-                      <FaArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4" />
                     </motion.a>
                   </div>
                 </div>
@@ -195,7 +196,7 @@ const Blog = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                className="glass-strong rounded-3xl overflow-hidden interactive-card glow-blue"
+                className="glass-strong rounded-3xl overflow-hidden interactive-card"
               >
                 <div className="relative h-48">
                   <Image src={article.image || "/placeholder.svg"} alt={article.title} fill className="object-cover" />
@@ -216,11 +217,11 @@ const Blog = () => {
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-3 text-xs text-gray-400">
                     <div className="flex items-center gap-1">
-                      <FaCalendarAlt className="w-3 h-3" />
+                      <Calendar className="w-3 h-3" />
                       <span className="font-mono">{new Date(article.date).toLocaleDateString()}</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <FaClock className="w-3 h-3" />
+                      <Clock className="w-3 h-3" />
                       <span className="font-mono">{article.readTime}</span>
                     </div>
                   </div>
@@ -248,7 +249,7 @@ const Blog = () => {
                     whileHover={{ x: 5 }}
                   >
                     Read on {article.platform}
-                    <FaArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4" />
                   </motion.a>
                 </div>
               </motion.div>
@@ -267,7 +268,7 @@ const Blog = () => {
             whileTap={{ scale: 0.98 }}
           >
             View All Articles
-            <FaArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5" />
           </motion.button>
         </motion.div>
       </div>
