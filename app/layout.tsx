@@ -2,6 +2,7 @@ import type React from "react"
 import "./globals.css"
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google"
 import type { Metadata } from "next"
+import { Analytics } from "@vercel/analytics/next"
 import TechNav from "./components/TechNav"
 import ScrollToTop from "./components/ScrollToTop"
 import LoadingScreen from "./components/LoadingScreen"
@@ -45,6 +46,7 @@ export default function RootLayout({
         <TechNav />
         <ScrollToTop />
         <main className="pt-16 relative z-10">{children}</main>
+        <Analytics />
       </body>
     </html>
   )
